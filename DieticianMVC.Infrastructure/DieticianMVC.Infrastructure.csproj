@@ -10,4 +10,8 @@
     <Folder Include="Repositories\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DieticianMVC.Domain\DieticianMVC.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

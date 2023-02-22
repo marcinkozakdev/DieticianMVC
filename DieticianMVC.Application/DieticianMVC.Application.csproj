@@ -11,4 +11,8 @@
     <Folder Include="Services\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DieticianMVC.Domain\DieticianMVC.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
