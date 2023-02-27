@@ -15,5 +15,6 @@
         public decimal GlycemicLoad { get; set; }
         public int DishId { get; set; }
         public virtual ICollection<Dish> Dishes { get; set; }
+        public virtual HomeMeasure HomeMeasures { get; set; }
     }
 }
