@@ -17,6 +17,12 @@ namespace DieticianMVC.Infrastructure.Repositories
             return bodyMesurements;
         }
 
+        public BodyMeasurements GetBodyMeasurementsById(int bodyMeasurementsId)
+        {
+            var bodyMesurements = _context.BodyMeasurements.FirstOrDefault(i => i.Id == bodyMeasurementsId);
+            return bodyMesurements;
+        }
+
         public BodyMeasurements AddBodyMeasurements(BodyMeasurements bodyMeasurements)
         {
             _context.BodyMeasurements.Add(bodyMeasurements);

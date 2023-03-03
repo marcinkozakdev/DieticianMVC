@@ -3,13 +3,14 @@ using DieticianMVC.Domain.Model;
 
 namespace DieticianMVC.Infrastructure.Repositories
 {
-    public class AddressRepository : IAddressRepository
+    public class AddressRepository :IAddressRepository
     {
         private readonly Context _context;
         public AddressRepository(Context context)
         {
             _context = context;
         }
+
         public Address GetAddressById(int addressId)
         {
             var address = _context.Addresses.FirstOrDefault(i => i.Id == addressId);
