@@ -21,16 +21,24 @@ namespace DieticianMVC.Infrastructure.Repositories
             }
         }
 
-        public int AddPatient(Patient patient)
+        public Patient AddPatient(Patient patient)
         {
             _context.Patients.Add(patient);
             _context.SaveChanges();
-            return patient.Id;
+            return patient;
+        }
+
+        public Patient UpdatePatient(Patient patient)
+        {
+            if (patient != null)
+                _context.Patients.Update(patient);
+            _context.SaveChanges();
+            return patient;
         }
 
         public IQueryable<Patient> GetPatientByDieticianId(int dieticianId)
         {
-            var patients = _context.Patients.Where(i => i.Id == dieticianId);
+            var patients = _context.Patients.Where(i => i.DieticianId == dieticianId);
             return patients;
         }
 

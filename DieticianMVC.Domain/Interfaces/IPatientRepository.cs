@@ -4,9 +4,10 @@ namespace DieticianMVC.Domain.Interfaces
 {
     public interface IPatientRepository
     {
-        void DeletePatient(int patientId);
-        int AddPatient(Patient patient);
-        IQueryable<Patient> GetPatientByDieticianId(int dieticianId);
+        Patient AddPatient(Patient patient);
         Patient GetPatientById(int patientId);
+        IQueryable<Patient> GetPatientByDieticianId(int dieticianId);
+        Patient UpdatePatient(Patient patient);
+        void DeletePatient(int patientId);
     }
 }
