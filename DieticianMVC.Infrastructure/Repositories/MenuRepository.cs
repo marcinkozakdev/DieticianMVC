@@ -1,4 +1,5 @@
-﻿using DieticianMVC.Domain.Model;
+﻿using DieticianMVC.Domain.Interfaces;
+using DieticianMVC.Domain.Model;
 
 namespace DieticianMVC.Infrastructure.Repositories
 {
