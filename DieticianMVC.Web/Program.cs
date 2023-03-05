@@ -1,5 +1,4 @@
 using DieticianMVC.Infrastructure;
-using DieticianMVC.Web.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
