@@ -5,8 +5,9 @@ namespace DieticianMVC.Domain.Interfaces
     public interface IPatientRepository
     {
         Patient AddPatient(Patient patient);
-        Patient GetPatientById(int patientId);
+        Patient GetPatient(int patientId);
         IQueryable<Patient> GetPatientByDieticianId(int dieticianId);
+        IQueryable<Patient> GetAllActivePatients();
         Patient UpdatePatient(Patient patient);
         void DeletePatient(int patientId);
     }
