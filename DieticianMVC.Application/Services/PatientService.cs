@@ -1,41 +1,47 @@
-﻿using DieticianMVC.Application.Interfaces;
+﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
+using DieticianMVC.Application.Interfaces;
 using DieticianMVC.Application.ViewModels.Patient;
 using DieticianMVC.Domain.Interfaces;
+using DieticianMVC.Domain.Model;
 
 namespace DieticianMVC.Application.Services
 {
     public class PatientService : IPatientService
     {
         private readonly IPatientRepository _patientRepository;
+        private readonly IMapper _mapper;
 
-        public int AddPatient(NewPatientVm patient)
+        public PatientService(IPatientRepository patientRepository, IMapper mapper)
         {
-            throw new NotImplementedException();
+            _patientRepository = patientRepository;
+            _mapper = mapper;
+        }
+
+        public int AddPatient(NewPatientVm patientVm)
+        {
+            var patient = _mapper.Map<Patient>(patientVm);
+            var id = _patientRepository.AddPatient(patient);
+            return id;
         }
 
         public ListPatientForListVm GetAllPatientForList()
         {
-            var patients = _patientRepository.GetAllActivePatients();
-            ListPatientForListVm result = new ListPatientForListVm();
-            result.Patients = new List<PatientForListVm>();
-            foreach(var patient in patients)
+            var patients = _patientRepository.GetAllActivePatients()
+                .ProjectTo<PatientForListVm>(_mapper.ConfigurationProvider).ToList();
+            var patientList = new ListPatientForListVm()
             {
-                var patientVm = new PatientForListVm()
-                {
-                    Id = patient.Id,
-                    FullName = patient.FirstName + " " + patient.LastName,
-                    EmailAddress = patient.EmailAddress,
-                };
-                result.Patients.Add(patientVm);
-            }
-            result.Count = result.Patients.Count;
-            return result;
+                Patients = patients,
+                Count = patients.Count
+            };
+            return patientList;
         }
 
         public PatientDetailsVm GetPatientDetails(int patientId)
         {
             var patient = _patientRepository.GetPatient(patientId);
-            var patientVm = new PatientDetailsVm();
+            var patientVm = _mapper.Map<PatientDetailsVm>(patient);
+
             patientVm.Id = patient.Id;
             patientVm.FirstName = patient.FirstName;
             patientVm.LastName = patient.LastName;
