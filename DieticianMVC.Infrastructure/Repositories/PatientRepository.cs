@@ -47,5 +47,16 @@ namespace DieticianMVC.Infrastructure.Repositories
             var patient = _context.Patients.FirstOrDefault(i => i.Id == patientId);
             return patient;
         }
+
+        public Patient GetPatient(int patientId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IQueryable<Patient> GetAllActivePatients()
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }
