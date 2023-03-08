@@ -6,7 +6,7 @@ namespace DieticianMVC.Domain.Interfaces
     {
         IQueryable<BodyMeasurements> GetBodyMeasurementsByPatientId(int patientId);
         BodyMeasurements GetBodyMeasurementsById(int bodyMeasurementsId);
-        BodyMeasurements AddBodyMeasurements(BodyMeasurements bodyMeasurements);
+        int AddBodyMeasurements(BodyMeasurements bodyMeasurements);
         BodyMeasurements UpdateBodyMeasurements(BodyMeasurements bodyMeasurements);
         void DeleteBodyMeasurements(int bodyMeasurementsId);
     }

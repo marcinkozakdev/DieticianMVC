@@ -10,12 +10,21 @@ namespace DieticianMVC.Application.Services
     public class PatientService : IPatientService
     {
         private readonly IPatientRepository _patientRepository;
+        private readonly IBodyMeasurementsRepository _bodyMeasurementsRepository;
         private readonly IMapper _mapper;
 
-        public PatientService(IPatientRepository patientRepository, IMapper mapper)
+        public PatientService(IPatientRepository patientRepository, IBodyMeasurementsRepository bodyMeasurementsRepository ,IMapper mapper)
         {
             _patientRepository = patientRepository;
+            _bodyMeasurementsRepository = bodyMeasurementsRepository;
             _mapper = mapper;
+        }
+
+        public int AddBodyMeasurements(NewBodyMeasurementsVm bodyMeasurementsVm)
+        {
+            var bodyMeasurements = _mapper.Map<BodyMeasurements>(bodyMeasurementsVm);
+            var id = _bodyMeasurementsRepository.AddBodyMeasurements(bodyMeasurements);
+            return id;
         }
 
         public int AddPatient(NewPatientVm patientVm)
@@ -25,11 +34,21 @@ namespace DieticianMVC.Application.Services
             return id;
         }
 
-        public ListPatientForListVm GetAllPatientForList()
+        public void DeleteBodyMeasurements(int bodyMeasurementsId)
+        {
+            _bodyMeasurementsRepository.DeleteBodyMeasurements(bodyMeasurementsId);
+        }
+
+        public void DeletePatient(int patientId)
+        {
+            _patientRepository.DeletePatient(patientId);
+        }
+
+        public ListPatientsForListVm GetAllPatientForList()
         {
             var patients = _patientRepository.GetAllActivePatients()
                 .ProjectTo<PatientForListVm>(_mapper.ConfigurationProvider).ToList();
-            var patientList = new ListPatientForListVm()
+            var patientList = new ListPatientsForListVm()
             {
                 Patients = patients,
                 Count = patients.Count
@@ -37,63 +56,43 @@ namespace DieticianMVC.Application.Services
             return patientList;
         }
 
+        public IQueryable<BodyMeasurementsForListVm> GetBodyMeasurementsByPatient(int patientId)
+        {
+            var bodyMeasurementsVm = _bodyMeasurementsRepository.GetBodyMeasurementsByPatientId(patientId).ProjectTo<BodyMeasurementsForListVm>(_mapper.ConfigurationProvider);
+            return bodyMeasurementsVm;
+        }
+
+        public NewBodyMeasurementsVm GetBodyMeasurementsForEdit(int bodyMeasurementsId)
+        {
+            var bodyMeasurements = _bodyMeasurementsRepository.GetBodyMeasurementsById(bodyMeasurementsId);
+            var bodyMeasurementsVm = _mapper.Map<NewBodyMeasurementsVm>(bodyMeasurements);
+            return bodyMeasurementsVm;
+        }
+
         public PatientDetailsVm GetPatientDetails(int patientId)
         {
             var patient = _patientRepository.GetPatient(patientId);
             var patientVm = _mapper.Map<PatientDetailsVm>(patient);
-
-            patientVm.Id = patient.Id;
-            patientVm.FirstName = patient.FirstName;
-            patientVm.LastName = patient.LastName;
-            patientVm.EmailAddress = patient.EmailAddress;
-            patientVm.PhoneNumber = patient.PhoneNumber;
-            patientVm.Sex = patient.Sex;
-            patientVm.DateOfBirth = patient.DateOfBirth;
-            patientVm.FoodPreferences = new List<FoodPreferencesForListVm>();
-            patientVm.LikedProducts = new List<LikedProductForListVm>();
-            patientVm.DislikedProducts = new List<DislikedProductForListVm>();
-            patientVm.FoodAllergiesAndIntolerances = new List<FoodAllergiesAndIntolerancesForListVm>();
-
-            foreach(var foodPreference in patient.FoodPreferences)
-            {
-                var add = new FoodPreferencesForListVm()
-                {
-                    Id = foodPreference.Id,
-                    Name = foodPreference.Name,
-                };
-                patientVm.FoodPreferences.Add(add);
-            }
-
-            foreach (var likeProduct in patient.LikedProducts)
-            {
-                var add = new LikedProductForListVm()
-                {
-                    Id = likeProduct.Id,
-                    Name = likeProduct.Name,
-                };
-                patientVm.LikedProducts.Add(add);
-            }
-
-            foreach (var dislikeProduct in patient.DislikedProducts)
-            {
-                var add = new DislikedProductForListVm()
-                {
-                    Id = dislikeProduct.Id,
-                    Name = dislikeProduct.Name,
-                };
-                patientVm.DislikedProducts.Add(add);
-            }
-
-            foreach (var foodAllergiesAndIntolerances in patient.FoodAllergiesAndIntolerances)
-            {
-                var add = new FoodAllergiesAndIntolerancesForListVm()
-                {
-                    Id = foodAllergiesAndIntolerances.Id,
-                    Name = foodAllergiesAndIntolerances.Name,
-                };
-                patientVm.FoodAllergiesAndIntolerances.Add(add);
-            }
             return patientVm;
+        }
+
+        public NewPatientVm GetPatientForEdit(int patientId)
+        {
+            var patient = _patientRepository.GetPatient(patientId);
+            var patientVm = _mapper.Map<NewPatientVm>(patient);
+            return patientVm;
+        }
+
+        public void UpdateBodyMeasurements(NewBodyMeasurementsVm bodyMeasurementsVm)
+        {
+            var bodyMeasurements = _mapper.Map<BodyMeasurements>(bodyMeasurementsVm);
+            _bodyMeasurementsRepository.UpdateBodyMeasurements(bodyMeasurements);
+        }
+
+        public void UpdatePatient(NewPatientVm patientVm)
+        {
+            var patient = _mapper.Map<Patient>(patientVm);
+            _patientRepository.UpdatePatient(patient);
         }
     }
 }

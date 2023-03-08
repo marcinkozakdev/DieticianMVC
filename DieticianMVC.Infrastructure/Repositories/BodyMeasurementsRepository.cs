@@ -23,7 +23,7 @@ namespace DieticianMVC.Infrastructure.Repositories
             return bodyMesurements;
         }
 
-        public BodyMeasurements AddBodyMeasurements(BodyMeasurements bodyMeasurements)
+        public int AddBodyMeasurements(BodyMeasurements bodyMeasurements)
         {
             _context.BodyMeasurements.Add(bodyMeasurements);
             _context.SaveChanges();
