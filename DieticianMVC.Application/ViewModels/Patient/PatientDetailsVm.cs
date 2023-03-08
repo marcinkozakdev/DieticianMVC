@@ -15,7 +15,7 @@ namespace DieticianMVC.Application.ViewModels.Patient
         public List<FoodAllergiesAndIntolerancesForListVm> FoodAllergiesAndIntolerances { get; set; }
         public List<DislikedProductForListVm> DislikedProducts { get; set; }
         public List<LikedProductForListVm> LikedProducts { get; set; }
-        public List<BodyMeasurementsForListVm> BodyMeasurements { get; set; }
+        public List<NewBodyMeasurementsVm> BodyMeasurements { get; set; }
         public List<Menu> Menus { get; set; }
     }
 }
