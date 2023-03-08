@@ -21,11 +21,11 @@ namespace DieticianMVC.Infrastructure.Repositories
             }
         }
 
-        public Patient AddPatient(Patient patient)
+        public int AddPatient(Patient patient)
         {
             _context.Patients.Add(patient);
             _context.SaveChanges();
-            return patient;
+            return patient.Id;
         }
 
         public Patient UpdatePatient(Patient patient)

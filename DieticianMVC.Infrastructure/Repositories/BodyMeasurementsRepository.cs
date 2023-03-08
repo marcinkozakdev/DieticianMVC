@@ -27,7 +27,7 @@ namespace DieticianMVC.Infrastructure.Repositories
         {
             _context.BodyMeasurements.Add(bodyMeasurements);
             _context.SaveChanges();
-            return bodyMeasurements;
+            return bodyMeasurements.Id;
         }
 
         public BodyMeasurements UpdateBodyMeasurements(BodyMeasurements bodyMeasurements)
