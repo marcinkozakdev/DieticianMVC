@@ -1,5 +1,6 @@
 ﻿using DieticianMVC.Domain.Interfaces;
 using DieticianMVC.Domain.Model;
+using Microsoft.EntityFrameworkCore;
 
 namespace DieticianMVC.Infrastructure.Repositories
 {
@@ -55,7 +56,8 @@ namespace DieticianMVC.Infrastructure.Repositories
 
         public IQueryable<Patient> GetAllActivePatients()
         {
-            throw new NotImplementedException();
+            var patients = _context.Patients.AsNoTracking();
+            return patients;
         }
 
     }

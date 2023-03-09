@@ -7,10 +7,11 @@ namespace DieticianMVC.Web.Controllers
     public class PatientController : Controller
     {
         private readonly IPatientService _patientService;
-        public PatientController(IPatientService patientService )
+        public PatientController(IPatientService patientService)
         {
             _patientService = patientService;
         }
+        
         public IActionResult Index()
         {
             var model = _patientService.GetAllPatientForList();

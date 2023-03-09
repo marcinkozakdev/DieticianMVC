@@ -8,7 +8,7 @@ namespace DieticianMVC.Application.ViewModels.Patient
         public int Id { get; set; }
         public string FullName { get; set; }
         public string EmailAddress { get; set; }
-        public PatientStatusVm PatientStatus { get; set; }
+        //public PatientStatusVm PatientStatus { get; set; }
 
         public void Mapping(Profile profile)
         {
