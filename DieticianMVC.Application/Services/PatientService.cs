@@ -4,6 +4,7 @@ using DieticianMVC.Application.Interfaces;
 using DieticianMVC.Application.ViewModels.Patient;
 using DieticianMVC.Domain.Interfaces;
 using DieticianMVC.Domain.Model;
+using System.Security.Cryptography.X509Certificates;
 
 namespace DieticianMVC.Application.Services
 {
@@ -44,13 +45,20 @@ namespace DieticianMVC.Application.Services
             _patientRepository.DeletePatient(patientId);
         }
 
-        public ListPatientsForListVm GetAllPatientForList()
+        public ListPatientsForListVm GetAllPatientForList(int pageSize, int pageNumber, string searchString)
         {
             var patients = _patientRepository.GetAllActivePatients()
+                .Where(p=>p.FirstName.ToLower().Contains(searchString.ToLower()))
                 .ProjectTo<PatientForListVm>(_mapper.ConfigurationProvider).ToList();
+
+            var patientToShow = patients.Skip(pageSize * (pageNumber - 1)).Take(pageSize).ToList();
+
             var patientList = new ListPatientsForListVm()
             {
-                Patients = patients,
+                PageSize = pageSize,
+                CurrentPage = pageNumber,
+                SearchString = searchString,
+                Patients = patientToShow,
                 Count = patients.Count
             };
             return patientList;
