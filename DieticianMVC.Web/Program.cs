@@ -1,5 +1,8 @@
 using DieticianMVC.Application;
+using DieticianMVC.Application.ViewModels.Patient;
 using DieticianMVC.Infrastructure;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -18,6 +21,11 @@ builder.Services.AddApplication();
 builder.Services.AddInfrastructure();
 
 builder.Services.AddControllersWithViews();
+    //.AddFluentValidation();
+
+builder.Services.AddRazorPages();
+
+//builder.Services.AddTransient<IValidator<NewPatientVm>, NewPatientValidation>();
 
 var app = builder.Build();
 
