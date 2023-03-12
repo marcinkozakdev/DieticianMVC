@@ -102,5 +102,11 @@ namespace DieticianMVC.Application.Services
             var patient = _mapper.Map<Patient>(patientVm);
             _patientRepository.UpdatePatient(patient);
         }
+
+        public void UpdatePatientDetails(PatientDetailsVm patientVm)
+        {
+            var patient = _mapper.Map<Patient>(patientVm);
+            _patientRepository.UpdatePatient(patient);
+        }
     }
 }

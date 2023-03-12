@@ -34,44 +34,49 @@ namespace DieticianMVC.Web.Controllers
         }
 
         [HttpGet]
-        public IActionResult AddPatient()
+        public IActionResult Add()
         {
             return View(new NewPatientVm());
         }
 
         [HttpPost]
-        public IActionResult AddPatient(NewPatientVm patientVm)
+        public IActionResult Add(NewPatientVm patientVm)
         {
             var id = _patientService.AddPatient(patientVm);
             return RedirectToAction("Index");
         }
 
         [HttpGet]
-        public IActionResult EditPatient(int id)
+        public IActionResult Edit(int id)
         {
             var patient = _patientService.GetPatientForEdit(id);
             return View(patient);
         }
 
         [HttpPost]
-        public IActionResult EditPatient(NewPatientVm patientVm)
+        public IActionResult Edit(NewPatientVm patientVm)
         {
             _patientService.UpdatePatient(patientVm);
             return RedirectToAction("Index");
         }
 
-        [HttpDelete]
+        [HttpPost]
+        public IActionResult Edit(PatientDetailsVm patientVm)
+        {
+            _patientService.UpdatePatientDetails(patientVm);
+            return RedirectToAction("Index");
+        }
+
         public IActionResult Delete(int patientId)
         {
             _patientService.DeletePatient(patientId);
             return RedirectToAction("Index");
         }
 
-        [HttpGet]
-        public IActionResult ViewPatient(int patientId)
+        public IActionResult Details(int patientId)
         {
-            var id = _patientService.GetPatientDetails(patientId);
-            return View();
+            var patient = _patientService.GetPatientDetails(patientId);
+            return View(patient);
         }
     }
 }
