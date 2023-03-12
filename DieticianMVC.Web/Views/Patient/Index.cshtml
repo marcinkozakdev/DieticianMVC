@@ -4,28 +4,29 @@
     ViewData["Title"] = "Lista pacjentów";
 }
 
-<h1>Pacjenci</h1>
-
+<h3>Pacjenci</h3>
+<hr />
 <p>
-    <a asp-action="Create">Dodaj</a>
+    <div class="form-group">
+        <a asp-action="Add"><input type="button" value="+ Dodaj" class="btn btn-primary" /></a>
+    </div>
 </p>
 <form asp-action="Index" asp-controller="Patient" method="post">
     <div class="row">
-        <input type="text" asp-for="SearchString" name="searchString" id="searchString" />
-        <input type="submit" value="Wyszukaj" />
+        <input type="search" asp-for="SearchString" name="searchString" id="searchString" />
     </div>
     <div class="row">
         <table class="table">
             <thead>
                 <tr>
                     <th>
-                        Id
-                    </th>
-                    <th>
                         Imię i Nazwisko
                     </th>
                     <th>
                         Email
+                    </th>
+                    <th>
+                        Status
                     </th>
                     <th></th>
                 </tr>
@@ -35,18 +36,17 @@
                 {
                     <tr>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Id)
-                        </td>
-                        <td>
                             @Html.DisplayFor(modelItem => item.FullName)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.EmailAddress)
                         </td>
                         <td>
-                            @Html.ActionLink("Edit", "EditPatient", new { id=item.Id }) |
-                            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-                            @Html.ActionLink("Delete", "DeletePatient", new {id=item.Id})
+                            @Html.DisplayFor(modelItem => item.PatientStatus)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id=item.Id })
+                            @Html.ActionLink("Delete", "Delete", new {id=item.Id})
                         </td>
                     </tr>
                 }

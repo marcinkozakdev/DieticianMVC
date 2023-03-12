@@ -54,6 +54,5 @@ namespace DieticianMVC.Infrastructure.Repositories
             var patients = _context.Patients.AsNoTracking();
             return patients;
         }
-
     }
 }

@@ -28,11 +28,16 @@ builder.Services.AddRazorPages();
 //builder.Services.AddTransient<IValidator<NewPatientVm>, NewPatientValidation>();
 
 var app = builder.Build();
+var loggerFactory = app.Services.GetService<ILoggerFactory>();
 
 // Configure the HTTP request pipeline.
+
+loggerFactory.AddFile("Logs/myLog-{Date}.txt");
+
 if (app.Environment.IsDevelopment())
 {
-    app.UseMigrationsEndPoint();
+    app.UseDeveloperExceptionPage();
+    app.UseDatabaseErrorPage();
 }
 else
 {
