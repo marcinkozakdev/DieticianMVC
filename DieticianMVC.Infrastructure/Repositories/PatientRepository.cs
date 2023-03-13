@@ -14,7 +14,7 @@ namespace DieticianMVC.Infrastructure.Repositories
 
         public void DeletePatient(int patientId)
         {
-            var patient = _context.Patients.Find(patientId);
+            var patient = _context.Patients.FirstOrDefault(p => p.Id == patientId);
             if (patient != null)
             {
                 _context.Patients.Remove(patient);

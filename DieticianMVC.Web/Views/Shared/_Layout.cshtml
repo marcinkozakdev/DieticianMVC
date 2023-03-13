@@ -1,16 +1,61 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - DieticianMVC.Web</title>
+    <title>Dietician</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/DieticianMVC.Web.styles.css" asp-append-version="true" />
+    <script src="https://kit.fontawesome.com/61e1299a1e.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav>
+            <div class="wrapper">
+                <button class="burger-icon"><i class="fa-solid fa-bars"></i></button>
+                <div class="nav-items">
+                    <a href="home">home</a>
+                    <a href="about-application">o aplikacji</a>
+                    <a href="products">produkty</a>
+                    <a href="contact">kontakt</a>
+                </div>
+            </div>
+        </nav>
+
+        <header class="header">
+            <div class="hero-bg"></div>
+            <div class="hero-text">
+                <h1><span>Dietician</span></h1>
+                <p>Wszystko co potrzebujesz do pracy w jednej aplikacji</p>
+            </div>
+        </header>
+
+        <main>
+            <section class="about-us wrapper" id="about-us">
+                <h2 class="section-title">O aplikacji</h2>
+                <p class="about-us-info">
+                Dietician to aplikacja stworzona z myślą o dietetykach, pomaga w codziennej pracy, a przede wszystkim sprawia żeby układanie jadłospisów było szybkie i sprawne, a zarządzanie pacjentami przyjemne.
+                </p>
+                <p class="about-us-info">
+                  
+                </p>
+                </p>
+            </section>
+
+            <section class="contact wrapper" id="contact">
+                <h2 class="section-title">kontakt</h2>
+                <p><i class="fas fa-phone"></i> +48 000 000 000</p>
+                <p><i class="fas fa-at"></i> kontakt@dietician.pl</p>
+                <h3>Adres</h3>
+                <p>ul.Testowa 1</p>
+                <p>00-000 Kraków</p>
+            </section>
+       </main>
+        @*<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">DieticianMVC.Web</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -29,8 +74,7 @@
                     <partial name="_LoginPartial" />
                 </div>
             </div>
-        </nav>
-    </header>
+        </nav>*@
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -39,7 +83,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2023 - DieticianMVC.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2023 - Dietician - <a asp-area="" asp-controller="Home" asp-action="Privacy">Polityka prywatności</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
