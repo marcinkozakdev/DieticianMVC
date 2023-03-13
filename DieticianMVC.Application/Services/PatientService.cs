@@ -45,7 +45,7 @@ namespace DieticianMVC.Application.Services
             _patientRepository.DeletePatient(patientId);
         }
 
-        public ListPatientsForListVm GetAllPatientForList(int pageSize, int pageNumber, string searchString)
+        public ListPatientsForListVm GetAllPatientsForList(int pageSize, int pageNumber, string searchString)
         {
             var patients = _patientRepository.GetAllActivePatients()
                 .Where(p=>p.FirstName.ToLower().Contains(searchString.ToLower()))

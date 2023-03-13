@@ -4,9 +4,9 @@ namespace DieticianMVC.Application.Interfaces
 {
     public interface IPatientService
     {
-        ListPatientsForListVm GetAllPatientForList(int pageSize, int pageNumber, string searchString);
+        ListPatientsForListVm GetAllPatientsForList(int pageSize, int pageNumber, string searchString);
         int AddPatient(NewPatientVm patient);
-        PatientDetailsVm GetPatientDetails(int idpatientId);
+        PatientDetailsVm GetPatientDetails(int patientId);
         void DeletePatient(int patientId);
         NewPatientVm GetPatientForEdit(int patientId);
         void UpdatePatient(NewPatientVm patient);

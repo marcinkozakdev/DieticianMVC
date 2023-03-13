@@ -16,7 +16,7 @@ namespace DieticianMVC.Web.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var model = _patientService.GetAllPatientForList(3, 1,"");
+            var model = _patientService.GetAllPatientsForList(3, 1,"");
             return View(model);
         }
 
@@ -29,7 +29,7 @@ namespace DieticianMVC.Web.Controllers
             if(searchString is null)
                 searchString = String.Empty;
 
-            var model = _patientService.GetAllPatientForList(pageSize, pageNumber.Value, searchString);
+            var model = _patientService.GetAllPatientsForList(pageSize, pageNumber.Value, searchString);
             return View(model);
         }
 
@@ -67,15 +67,16 @@ namespace DieticianMVC.Web.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult Delete(int patientId)
+        public IActionResult Delete(int id)
         {
-            _patientService.DeletePatient(patientId);
+            _patientService.DeletePatient(id);
             return RedirectToAction("Index");
         }
 
-        public IActionResult Details(int patientId)
+        [HttpGet]
+        public IActionResult Details(int id)
         {
-            var patient = _patientService.GetPatientDetails(patientId);
+            var patient = _patientService.GetPatientDetails(id);
             return View(patient);
         }
     }
