@@ -4,7 +4,6 @@ using DieticianMVC.Application.Interfaces;
 using DieticianMVC.Application.ViewModels.Patient;
 using DieticianMVC.Domain.Interfaces;
 using DieticianMVC.Domain.Model;
-using System.Security.Cryptography.X509Certificates;
 
 namespace DieticianMVC.Application.Services
 {
