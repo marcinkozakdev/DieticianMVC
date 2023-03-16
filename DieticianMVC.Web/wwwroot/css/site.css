@@ -12,7 +12,7 @@ body {
     font-family: "Open Sans", sans-serif;
 }
 
-.wrapper {
+/*.wrapper {
     margin: 0 auto;
     width: 100%;
     max-width: 1200px;
@@ -53,10 +53,10 @@ body {
 
 section {
     scroll-margin-top: 80px;
-}
+}*/
 
 /* nawigacja */
-nav {
+/*nav {
     position: sticky;
     top: 0;
     height: 60px;
@@ -80,42 +80,42 @@ nav {
 
 .nav-items {
     display: none;
-}
+}*/
 
 /* header */
 
-.header {
+/*.header {
     position: relative;
     background-image: url("../images/food-diet.png");
     height: 330px;
     background-size: cover;
     background-position: center;
-}
+}*/
 
 /* main */
-main {
+/*main {
     margin: 60px 0;
     color: #fff;
-}
+}*/
 
 /* o nas */
-.about-us-info {
+/*.about-us-info {
     margin-bottom: 10px;
     padding: 0 20px;
-}
+}*/
 
 /* kontakt */
-.contact {
+/*.contact {
     text-align: center;
 }
 
     .contact h3 {
         margin: 20px 0 5px;
         text-transform: uppercase;
-    }
+    }*/
 
 /* footer */
-footer {
+/*footer {
     padding: 30px 10px;
     text-align: center;
     background-color: #303035;
@@ -184,4 +184,4 @@ footer {
     .hero-text p {
         font-size: 20px;
     }
-}
+}*/

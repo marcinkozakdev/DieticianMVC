@@ -1,6 +1,5 @@
 ﻿using DieticianMVC.Application.Interfaces;
 using DieticianMVC.Application.Services;
-using DieticianMVC.Domain.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
