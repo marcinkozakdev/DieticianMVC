@@ -1,6 +1,7 @@
 ﻿using DieticianMVC.Application.Interfaces;
 using DieticianMVC.Application.Services;
 using DieticianMVC.Application.ViewModels.Patient;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DieticianMVC.Web.Controllers
@@ -13,6 +14,7 @@ namespace DieticianMVC.Web.Controllers
             _patientService = patientService;
         }
 
+        [Authorize(Policy = "CanViewPatients")]
         [HttpGet]
         public IActionResult Index()
         {

@@ -14,7 +14,7 @@ builder.Services.AddDbContext<Context>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<Context>();
 
 builder.Services.AddApplication();
@@ -44,6 +44,14 @@ builder.Services.AddAuthentication().AddGoogle(options =>
     IConfigurationSection googleAuthNSection = builder.Configuration.GetSection("Authentication:Google");
     options.ClientId = googleAuthNSection["ClientId"];
     options.ClientSecret = googleAuthNSection["ClientSecret"];
+});
+
+builder.Services.AddAuthorization(options =>
+{
+options.AddPolicy("CanAddNewPatient", policy =>
+    policy.RequireClaim("ViewPatient", "AddNewPatient"));
+    options.AddPolicy("CanViewPatients", policy =>
+    policy.RequireClaim("ViewPatients"));
 });
 
 var app = builder.Build();
