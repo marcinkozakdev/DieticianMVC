@@ -28,6 +28,24 @@ builder.Services.AddRazorPages();
 
 //builder.Services.AddTransient<IValidator<NewPatientVm>, NewPatientValidation>();
 
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    options.Password.RequireDigit = true;
+    options.Password.RequiredLength = 8;
+    options.Password.RequireLowercase = true;
+    options.Password.RequireUppercase = true;
+    options.Password.RequiredUniqueChars = 1;
+
+    options.SignIn.RequireConfirmedEmail = false;
+});
+
+builder.Services.AddAuthentication().AddGoogle(options =>
+{
+    IConfigurationSection googleAuthNSection = builder.Configuration.GetSection("Authentication:Google");
+    options.ClientId = googleAuthNSection["ClientId"];
+    options.ClientSecret = googleAuthNSection["ClientSecret"];
+});
+
 var app = builder.Build();
 var loggerFactory = app.Services.GetService<ILoggerFactory>();
 
