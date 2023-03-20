@@ -1,4 +1,4 @@
-* {
+{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -11,7 +11,7 @@ html {
 
 body {
     height: 100vh;
-    background-color: #fff;
+    background-position: center;
 }
 
 li {
@@ -20,33 +20,41 @@ li {
 
 a {
     text-decoration: none;
-    color: #000;
+    color: white;
     font-size: 1rem;
 }
 
     a:hover {
-        color: #9db13e
+        color: #303035
     }
 
 /* HEADER */
 header {
-    position: relative;
-    padding: 0 2rem;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    z-index: 99;
+    box-shadow: 0 0 10px #000;
+    background: rgba(0,0,0,0.5);
 }
 
 .navbar {
     width: 100%;
-    height: 60px;
+    height: 40px;
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 }
 
     .navbar .links {
         display: flex;
         gap: 2rem;
+        max-width:800px;
     }
 
     .navbar .toggle_btn {
@@ -56,9 +64,9 @@ header {
         display: none;
     }
 
+
 .action_btn {
-    background-color: #9db13e;
-    color: #303035;
+    color: white;
     padding: 0.5rem 1rem;
     border: none;
     outline: none;
@@ -69,6 +77,8 @@ header {
 }
 
     .action_btn:hover {
+        background: white;
+        opacity:0.5;
         scale: 1.05;
         color: #303035;
     }
@@ -77,270 +87,83 @@ header {
         scale: 0.95;
     }
 
-    /* DRPDOWN MENU */
-    .dropdown_menu{
-        display:none;
-        position: absolute;
-        right: 2rem;
-        top: 60px;
-        height:0px;
-        width: 300px;
-        background: rgba(255,255,255, 0.1);
-        backdrop-filter: blur(15px);
-        border-radius: 10px;
-        overflow: hidden;
-        transition: height .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+/* DRPDOWN MENU */
+.dropdown_menu {
+    display: none;
+    position: absolute;
+    right: 2rem;
+    top: 60px;
+    height: 0px;
+    width: 300px;
+    background: rgba(255,255,255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: height .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+    .dropdown_menu.open {
+        height: 240px;
     }
 
-    .dropdown_menu.open{
-        height:240px;
-
-    }
-
-    .dropdown_menu li{
-        padding:0.7rem;
+    .dropdown_menu li {
+        padding: 0.7rem;
         display: flex;
-        align-items:center;
+        align-items: center;
         justify-content: center;
     }
 
-    .dropdown_menu .action_btn{
-        width:100%;
+    .dropdown_menu .action_btn {
+        width: 100%;
         display: flex;
-        justify-content:center;
+        justify-content: center;
     }
 
-    /* HERO */
-    section#hero{
-        height: calc(100vh-60px);
-        display:flex;
-        flex-direction:column;
-        align-items:center;
-        justify-content:center;
-        text-align:center;
-        color: #fff;
-    }
-
-    #hero h1{
-        font-size: 3rem;
-        margin-bottom: 1rem;
-    }
-
-    /* RESPONSIVE DESIGN */
-    @media(max-width: 992px){
-        .navbar .links,
-        .navbar .action_btn{
-            display: none;
-        }
-
-        .navbar .toggle_btn{
-            display: block
-        }
-
-        .dropdown_menu{
-            display:block;
-        }
-    }
-
-    @media (max-width:576px){
-        .dropdown_menu{
-            left:2rem;
-            width: unset;
-        }
-    }
-
-/*.wrapper {
-    margin: 0 auto;
-    width: 100%;
-    max-width: 1200px;
-    color: #303035;
-}
-
-.hero-bg {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-}
-
-.hero-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+/* HERO */
+section#hero {
+    height: calc(100vh-60px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     color: #fff;
 }
 
-    .hero-text h1 {
-        margin-bottom: 5px;
-        text-shadow: 3px 3px 5px #000;
-        color: #303035;
-    }
-
-    .hero-text span {
-        text-transform: uppercase;
-        color: #9db13e;
-    }
-
-.section-title {
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    text-align: center;
+#hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
 }
 
-section {
-    scroll-margin-top: 80px;
-}*/
-
-/* nawigacja */
-/*nav {
-    position: sticky;
-    top: 0;
-    height: 60px;
-    line-height: 60px;
-    background-color: #303035;
-    text-align: center;
-    z-index: 10;
-}
-
-.burger-icon {
-    display: block;
-    margin-left: auto;
-    padding: 0 30px;
-    line-height: 60px;
-    font-size: 30px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #9db13e;
-}
-
-.nav-items {
-    display: none;
-}*/
-
-/* header */
-
-/*.header {
-    position: relative;
-    background-image: url("../images/food-diet.png");
-    height: 330px;
-    background-size: cover;
-    background-position: center;
-}*/
-
-/* main */
-/*main {
-    margin: 60px 0;
-    color: #fff;
-}*/
-
-/* o nas */
-/*.about-us-info {
-    margin-bottom: 10px;
-    padding: 0 20px;
-}*/
-
-/* kontakt */
-/*.contact {
-    text-align: center;
-}
-
-    .contact h3 {
-        margin: 20px 0 5px;
-        text-transform: uppercase;
-    }*/
-
-/* footer */
-/*footer {
-    padding: 30px 10px;
-    text-align: center;
-    background-color: #303035;
-}
-
-.logo {
-    background-image: url("../images//dietician-logo.png")
-}
-
-@media (min-width: 768px) {
-    .nav-items {
-        display: block;
-    }
-
-    .burger-icon {
+/* RESPONSIVE DESIGN */
+@media(max-width: 992px) {
+    .navbar .links,
+    .navbar .action_btn {
         display: none;
     }
 
-    .nav-items a {
-        padding: 0 30px;
-        text-decoration: none;
-        text-transform: uppercase;
-        font-weight: bold;
-        color: #e8e8e8;
-        transition: color 0.3s;
+    .navbar .toggle_btn {
+        display: block
     }
 
-        .nav-items a:hover {
-            color: #9db13e;
-        }
-
-    .header {
-        height: 400px;
-        background-image: url("../img/hero-big.jpg");
-    }
-
-    .hero-text h1 {
-        font-size: 36px;
-    }
-
-    .hero-text p {
-        font-size: 18px;
-    }
-
-    .products h3 {
-        font-size: 24px;
+    .dropdown_menu {
+        display: block;
     }
 }
 
-@media (min-width: 992px) {
-    .products-box {
-        font-size: 0;
-    }
-
-    .product {
-        display: inline-block;
-        width: 50%;
+@media (max-width:576px) {
+    .dropdown_menu {
+        left: 2rem;
+        width: unset;
     }
 }
 
-@media (min-width: 1200px) {
-    .hero-text h1 {
-        font-size: 42px;
-    }
 
-    .hero-text p {
-        font-size: 20px;
-    }
-
-
-
-}*/
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
 
 /*a.nav-link a:hover {
-    background-color: #303035 !important;
+    background-color: # !important;
 }
 
 a.navbar-brand {
@@ -352,7 +175,7 @@ a.navbar-brand {
 }
 
 a.nav-link {
-    color: #303035 !important;
+    color: white !important;
     white-space: normal;
     font-family: 'Roboto', sans-serif;
     font-size: large;
@@ -389,7 +212,6 @@ button.nav-link {
     background-color: #1b6ec2;
     border-color: #1861ac;
 }*/
-
 
 /* Sticky footer styles
 -------------------------------------------------- */
@@ -430,15 +252,17 @@ button.accept-policy {
 
 body {
     margin-bottom: 60px;
+    background-color: #013A6B;
+    background: linear-gradient(135deg, #32394e 1%, #cde4ef 14%,#cde4ef 30%, #6eb7cc 60%, #32394e 99% ) no-repeat;
     min-height: 500px;
 }
 
 .divLogin {
     position: relative;
     width: 350px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 50px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:50px;
     overflow: hidden;
     background-color: grey;
     overflow: hidden;
@@ -469,7 +293,7 @@ body {
 
 
 .iconItem {
-    color: #303035;
+    color: white;
     padding-right: 7px;
 }
 
@@ -500,15 +324,15 @@ ul {
 .footer {
     position: absolute;
     bottom: 0;
-    left: 0;
+    left:0;
     width: 100%;
     white-space: nowrap;
-    line-height: 35px;
+    line-height: 35px; 
     font-family: 'Nunito', sans-serif;
-}
+}*/
 
-*Backgrounds*/
-.bg-navbar {
+/*Backgrounds*/
+/*.bg-navbar {
     background-color: #32394e;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 #32394e;
 }
@@ -535,6 +359,9 @@ ul {
 
 .navbar-light .navbar-nav .active > .nav-link {
     color: red;
-}
+}*/
 
-*/
+
+
+
+

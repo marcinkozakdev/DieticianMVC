@@ -11,17 +11,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <script src="https://kit.fontawesome.com/61e1299a1e.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="~/images/logo16x16.png" />
 </head>
 
-<body>
+@*<body>
     <header>
-        <nav class="navbar" role="navigation">
+        <nav class="navbar mb-3" role="navigation">
             <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/logo200x40.png" height="40" width="200"></a>
             <div class="links">
     <a href="about-application">O aplikacji</a>
@@ -29,7 +26,8 @@
     <a href="contact">Kontakt</a>
     </div>
         <partial name="_LoginPartial" />
-    </header>
+        </nav>
+    </header>*@
 
     @* <nav>
     <div class="wrapper">
@@ -74,21 +72,87 @@
     </section>
     </main>*@
 
-
+@*
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
-  @*  </div>
+    </div>
 
-        <footer class="border-top footer text-muted">
-    <div class="container">
-    &copy; 2023 - Dietician - <a asp-area="" asp-controller="Home" asp-action="Privacy">Polityka prywatności</a>
-    </div>*@
-    </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+*@
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-xl navbar-light bg-navbar  box-shadow  mb-3" role="navigation">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/logo200x40.png" height="40" width="200" /></a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="navbar-collapse collapse flex-sm-row-reverse" id="navbarSupportedContent">
+                    <partial name="_LoginPartial" />
+
+                    <ul class="navbar-nav navbar-collapse justify-content-center">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">
+                                Home
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">
+                                </i>
+                                Funkcje
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">
+                                Kontakt
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class=" box-shadow footer text-muted bg-footer">
+        <div class="container-fluid row">
+            <div class=" col text-md-left">
+                <i class="fas fa-copyright iconItem"></i>
+                2023 - Dietician
+            </div>
+            <div class="col text-md-center">
+                Created by Marcin Kozak
+            </div>
+            <div class="col text-md-right">
+                <a href="https://www.proautomation.pl/" style="color:white; text-decoration:none">
+                    <i class="fas fa-home iconItem" style="font-size:1rem; padding-left:14px"></i>
+                    Kontakt
+                </a>
+
+            </div>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+
 </body>
 </html>
