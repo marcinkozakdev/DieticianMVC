@@ -5,30 +5,30 @@
 <ul class="navbar-nav">
     @if (SignInManager.IsSignedIn(User))
     {
-        <div class="navbar">
-        <ul class="links">
-        <li class="nav-item">
-            <a class="links" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Witaj @User.Identity?.Name!</a>
-        </li>
-        <li class="nav-item">
-            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                <button type="submit" class="action_btn">Wyloguj</button>
-            </form>
-        </li>
-        </ul>
+        <div class="nav-item">
+            <ul class="links">
+                <li class="nav-item">
+                    <a class="links" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Witaj @User.Identity?.Name!</a>
+                </li>
+                <li class="nav-item">
+                    <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                        <button type="submit" class="action_btn">Wyloguj</button>
+                    </form>
+                </li>
+            </ul>
         </div>
     }
     else
     {
-        <div class="navbar">
-        <ul class="links">
-        <li class="nav-item">
-            <a class="action_btn" asp-area="Identity" asp-page="/Account/Register">Załóż konto</a>
-        </li>
-        <li class="nav-item">
-            <a class="action_btn" asp-area="Identity" asp-page="/Account/Login">Zaloguj się</a>
-        </li>
-        </ul>
-     </div>
+        <div class="nav-item">
+            <ul class="links">
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="Identity" asp-page="/Account/Register">Załóż konto</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="Identity" asp-page="/Account/Login">Zaloguj się</a>
+                </li>
+            </ul>
+        </div>
     }
 </ul>
