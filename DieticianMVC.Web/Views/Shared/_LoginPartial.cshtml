@@ -2,33 +2,39 @@
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 
-<ul class="navbar-nav">
+<ul class="navbar-nav ms-auto">
     @if (SignInManager.IsSignedIn(User))
     {
-        <div class="nav-item">
-            <ul class="links">
-                <li class="nav-item">
-                    <a class="links" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Witaj @User.Identity?.Name!</a>
-                </li>
-                <li class="nav-item">
-                    <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                        <button type="submit" class="action_btn">Wyloguj</button>
-                    </form>
-                </li>
-            </ul>
-        </div>
+        <li class="navbar">
+            <a class="nav-link"
+           asp-area="Identity"
+           asp-page="/Account/Manage/Index"
+           title="Manage">Witaj @User.Identity?.Name!</a>
+        </li>
+        <li class="nav-but">
+            <form class="btn"
+              asp-area="Identity"
+              asp-page="/Account/Logout"
+              asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <button type="submit" class="btn btn-light">
+                    Wyloguj
+                </button>
+            </form>
+        </li>
     }
     else
     {
-        <div class="nav-item">
-            <ul class="links">
-                <li class="nav-item">
-                    <a class="nav-link" asp-area="Identity" asp-page="/Account/Register">Załóż konto</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-area="Identity" asp-page="/Account/Login">Zaloguj się</a>
-                </li>
-            </ul>
-        </div>
+        <ul class="navbar-nav mb-2 mb-lg-2 d-flex align-items-center">
+            <li class="nav-but align-items-center">
+                <a class="btn btn-outline-light"
+               asp-area="Identity"
+               asp-page="/Account/Login">Zaloguj się</a>
+            </li>
+            <li class="nav-but align-items-center">
+                <a class="btn btn-light"
+               asp-area="Identity"
+               asp-page="/Account/Register">Załóż konto</a>
+            </li>
+        </ul>
     }
 </ul>
