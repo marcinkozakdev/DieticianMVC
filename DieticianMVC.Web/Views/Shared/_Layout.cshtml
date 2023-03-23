@@ -10,32 +10,38 @@
     <link rel="stylesheet" href="~/css/font-awesome/css/all.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <script src="https://kit.fontawesome.com/61e1299a1e.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="~/images/logo16x16.png" />
 </head>
-
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark box-shadow">
-            <div class="container"
-            <a class="navbar-brand"
-               asp-area=""
-               asp-controller="Home"
-               asp-action="Index">
-                <img src="~/images/logo200x40.png"
-                     height="40"
-                     width="200" />
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-lg fixed-top">
+            <div class="container">
+                <a class="navbar-brand"
+                   asp-area=""
+                   asp-controller="Home"
+                   asp-action="Index">
+                    <img src="~/images/logo200x40.png"
+                         height="40"
+                         width="200" />
+                </a>
+                <button class="navbar-toggler"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
                 <div class="collapse navbar-collapse flex-sm-row-reverse" id="navbarSupportedContent">
                     <partial name="_LoginPartial" />
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link active"
+                        <li class="nav-item active">
+                            <a class="nav-link"
                                aria0current="page"
                                asp-area=""
                                asp-controller="Home"
@@ -65,13 +71,16 @@
         </nav>
 
     </header>
+
+
     <div class="container">
-        <main role="main" class="pb-3">
+        <main role="main">
             @RenderBody()
         </main>
     </div>
 
-    <footer class=" box-shadow footer text-muted bg-footer">
+
+    <footer class="bg-dark box-shadow footer text-muted bg-footer shadow-lg">
         <div class="container-fluid row">
             <div class=" col text-md-left">
                 <i class="fas fa-copyright iconItem"></i>
@@ -81,11 +90,6 @@
                 Created by Marcin Kozak
             </div>
             <div class="col text-md-right">
-                <a href="https://www.proautomation.pl/" style="color:white; text-decoration:none">
-                    <i class="fas fa-home iconItem" style="font-size:1rem; padding-left:14px"></i>
-                    Kontakt
-                </a>
-
             </div>
         </div>
     </footer>
