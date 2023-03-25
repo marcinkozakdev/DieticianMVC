@@ -37,7 +37,7 @@ font-size: 1.6rem;
     font-size:3rem;
 }
 
-.nav-item {
+./*nav-item {
     transition: all 0.2s;
     position: relative;
 }
@@ -56,17 +56,17 @@ font-size: 1.6rem;
 
     .nav-item:hover:after {
         opacity: 1;
-    }
+    }*/
 
 @media(mx-width:650px) {
-    .nav-item {
+    /*.nav-item {
         position: fixed;
         top: 60px;
         left: 0;
         background-color: gray;
         width: 100%;
         padding: 10px 0 25px;
-    }
+    }*/
 }
 
 .btn {
@@ -76,9 +76,20 @@ font-size: 1.6rem;
     background: rgba(255,255,255,255.75);
     transition: all 0.2s;
     border-radius: 2px;
+    font-size: 1.5rem;
 }
 
     .btn:hover {
         background-color: #9db13e !important;
         color: white;
     }
+
+.btn-nav btn {
+    position: relative;
+    transition: all 0.2s;
+    background-color: darkgray;
+    background: rgba(255,255,255,255.1);
+    transition: all 0.2s;
+    border-radius: 2px;
+    font-size: 1.5rem;
+}
