@@ -11,7 +11,7 @@
            asp-page="/Account/Manage/Index"
            title="Manage">Witaj @User.Identity?.Name!</a>
         </li>
-        <li class="nav-but align-items-center">
+        <li class="nav-but">
             <form
               asp-area="Identity"
               asp-page="/Account/Logout"
@@ -24,13 +24,13 @@
     }
     else
     {
-        <ul class="navbar-nav align-items-center">
+        <ul class="navbar-nav">
             <li class="nav-item">
                 <a class="nav-link"
                asp-area="Identity"
                asp-page="/Account/Login">Zaloguj się</a>
             </li>
-            <li class="nav-but align-items-center">
+            <li class="nav-but nav-item">
                 <a class="btn"
                asp-area="Identity"
                asp-page="/Account/Register">Załóż konto</a>
