@@ -1,18 +1,53 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-<div style="padding-top:100px;">
-    <div class="row" style="text-align:center;">
 
-        <div class="col-md-3">
-            <p>
-                Aplikacja stworzona z myślą o dietetykach, sprawia że układanie jadłospisów jest szybkie, a zarządzanie pacjentami przyjemne i sprawne.
-            </p>
-            <div class="col">
-                <a asp-area="Identity" asp-page="/Account/Register" class="btn border-dark bg-transparent" style="font-family: 'Roboto', sans-serif; font-weight:bold; font-size:15px;">
-                    Wypróbuj za darmo
-                </a>
+<section id="home" class="home">
+    <div class="container d-flex flex-column fa-columns justify-content-center align-items-center text-light">
+        <p class="welcome-text mb-4">
+            Aplikacja stworzona z myślą o dietetykach, sprawia że układanie jadłospisów jest szybkie, a zarządzanie pacjentami przyjemne i sprawne.
+        </p>
+        <a asp-area="Identity" asp-page="/Account/Register" class="btn">
+        Wypróbuj za darmo
+        </a>
+        <div class="hero-shadow"></div>
+    </div>
+</section>
+
+<section id="features" class="features">
+    <div class="container d-flex flex-column justify-content-center align-items-center text-dark">
+        <p class="display-1">Funkcje</p>
+        <p class="welcome-text mb-5">
+            Aplikacja stworzona z myślą o dietetykach, sprawia że układanie jadłospisów jest szybkie, a zarządzanie pacjentami przyjemne i sprawne.
+        </p>
+    </div>
+</section>
+
+<section id="contact" class="contact bg-dark text-light py-5">
+    <div class="container text-center py-5">
+        <p class="display-3 pb-lg-5 text-uppercase">Napisz do nas!</p>
+        <div class="row">
+            <div class="col-lg-9 my-5 m-lg-0">
+                <form>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Imię i nazwisko">
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Adres mailowy">
+                    </div>
+                    <div class="input-group mb-3">
+                        <textarea rows="6" class="form-control" placeholder="Treść wiadomości"></textarea>
+                    </div>
+                    <input type="submit" value="Wyślij" class="btn px-4 py-2 submit-btn">
+                </form>
+            </div>
+            <div class="col-lg-3 mt-4 m-lg-0 contact-info">
+                <h3>Adres:</h3>
+                <p class="green-color">Dietician</p>
+                <p><i class="bi bi-geo-alt green-color"></i> ul. Testowa 0 <br> 00-000 Kraków</p>
+                <p><i class="bi bi-phone green-color"></i>+48 000 000 000</p>
+                <p><i class="bi bi-at green-color"></i> kontakt@mail.pl</p>
             </div>
         </div>
     </div>
-</div>
+</section>
