@@ -21,52 +21,21 @@ font-size: 1.6rem;
     left:0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(0,0,0,0.5);
+    z-index: -1;
 }
 
 .green-color {
     color: #9db13e;
 }
 
-.nav-link, 
-.navbar-toggler-icon{
+.nav-link,
+.navbar-toggler-icon {
     font-size: 1.5rem;
 }
 
 .navbar-toggler{
     font-size:3rem;
-}
-
-./*nav-item {
-    transition: all 0.2s;
-    position: relative;
-}
-
-    .nav-item::after {
-        content: '';
-        opacity: 0;
-        transition: all 0.2s;
-        height: 2px;
-        width: 100%;
-        background-color: #9db13e;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-    }
-
-    .nav-item:hover:after {
-        opacity: 1;
-    }*/
-
-@media(mx-width:650px) {
-    /*.nav-item {
-        position: fixed;
-        top: 60px;
-        left: 0;
-        background-color: gray;
-        width: 100%;
-        padding: 10px 0 25px;
-    }*/
 }
 
 .btn {
@@ -93,3 +62,39 @@ font-size: 1.6rem;
     border-radius: 2px;
     font-size: 1.5rem;
 }
+
+.home{
+    position: relative;
+    height: 60rem;
+    background-image: url('../images/tlo-1.png');
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+}
+
+    .home .btn {
+        padding: 1rem 2rem;
+        font-size: 1.4rem;
+    }
+
+    .home .welcome-text {
+        font-size: 2.2rem;
+        padding: 100px;
+    }
+
+.home-section {
+    height: 100vh;
+    background-size: cover;
+}
+
+/* kontakt */
+.contact h3 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.contact .submit-btn {
+    font-size: 1.6rem;
+}
+

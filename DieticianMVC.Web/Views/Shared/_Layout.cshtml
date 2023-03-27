@@ -14,61 +14,53 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <script src="https://kit.fontawesome.com/61e1299a1e.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="~/images/logo16x16.png" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.0/font/bootstrap-icons.css">
 </head>
+
 <body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3 shadow-lg fixed-top">
+            <div class="container">
+                <a class="navbar-brand"
+                   asp-area=""
+                   asp-controller="Home"
+                   asp-action="Index">
+                    <img src="~/images/logo200x40.png"
+                         height="40"
+                         width="200" />
+                </a>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3 shadow-lg fixed-top">
-        <div class="container">
-            <a class="navbar-brand"
-               asp-area=""
-               asp-controller="Home"
-               asp-action="Index">
-                <img src="~/images/logo200x40.png"
-                     height="40"
-                     width="200" />
-            </a>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse flex-row-reverse" id="navbarSupportedContent">
-                <partial name="_LoginPartial" />
-                <div class="navbar-nav ms-auto">
-                    <a class="nav-link px-lg-3 active" href="#home">Home</a>
-                    <a class="nav-link px-lg-3" href="#features">Funkcje</a>
-                    <a class="nav-link px-lg-3" href="#contact">Kontakt</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse flex-row-reverse" id="navbarSupportedContent">
+                    <partial name="_LoginPartial" />
+                    <div class="navbar-nav ms-auto">
+                        <a class="nav-link px-lg-3 active" href="#home">Home</a>
+                        <a class="nav-link px-lg-3" href="#features">Funkcje</a>
+                        <a class="nav-link px-lg-3" href="#contact">Kontakt</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </nav>
-
-    <section id="home" class="home">
-        <div class="container h-100 d-flex flex-column justify-content-center align-items-center text-light text-center"></div>
-    </section>
-    <header>
+        </nav>
     </header>
 
-
-    <div class="container">
-        <main role="main">
-            @RenderBody()
-        </main>
-    </div>
-
+    <main role="main" class="home-section">
+        @RenderBody()
+    </main>
 
     <footer class="bg-dark box-shadow footer text-muted bg-footer shadow-lg">
-        <div class="container-fluid row">
-            <div class=" col text-md-left">
+        <div class="container-fluid row pb-3">
+            <div class="col text-md-left">
                 <i class="fas fa-copyright iconItem"></i>
                 2023 - Dietician
             </div>
-            <div class="col text-md-center">
+            <div class="col text-md-end">
                 Created by Marcin Kozak
-            </div>
-            <div class="col text-md-right">
             </div>
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
