@@ -29,6 +29,11 @@ font-size: 1.6rem;
     color: #9db13e;
 }
 
+.navbar {
+    opacity: 0.95;
+}
+
+}
 .nav-link,
 .navbar-toggler-icon {
     font-size: 1.5rem;
@@ -37,6 +42,8 @@ font-size: 1.6rem;
 .navbar-toggler{
     font-size:3rem;
 }
+
+
 
 .btn {
     position: relative;
@@ -52,16 +59,6 @@ font-size: 1.6rem;
         background-color: #9db13e !important;
         color: white;
     }
-
-.btn-nav btn {
-    position: relative;
-    transition: all 0.2s;
-    background-color: darkgray;
-    background: rgba(255,255,255,255.1);
-    transition: all 0.2s;
-    border-radius: 2px;
-    font-size: 1.5rem;
-}
 
 .home{
     position: relative;
@@ -79,7 +76,8 @@ font-size: 1.6rem;
 
     .home .welcome-text {
         font-size: 2.2rem;
-        padding: 100px;
+        padding-top: 100px;
+        padding-bottom: 50px;
     }
 
 .home-section {
