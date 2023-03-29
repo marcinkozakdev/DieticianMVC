@@ -26,7 +26,7 @@ font-size: 1.6rem;
 }
 
 .green-color {
-    color: #9db13e;
+    color: #9db13e
 }
 
 .navbar {
@@ -48,17 +48,17 @@ font-size: 1.6rem;
 .btn {
     position: relative;
     transition: all 0.2s;
-    background-color: darkgray;
-    background: rgba(255,255,255,255.75);
+    background: #9db13e;
     transition: all 0.2s;
     border-radius: 2px;
     font-size: 1.5rem;
 }
 
     .btn:hover {
-        background-color: #9db13e !important;
-        color: white;
+        background-color: white !important;
     }
+
+
 
 .home{
     position: relative;
@@ -74,10 +74,14 @@ font-size: 1.6rem;
         font-size: 1.4rem;
     }
 
+    .home .display-1 {
+        font-size: 3rem;
+    }
+
     .home .welcome-text {
-        font-size: 2.2rem;
-        padding-top: 100px;
-        padding-bottom: 50px;
+        font-size: 1.6rem;
+        padding-top: 40px;
+        padding-bottom: 30px;
     }
 
 .home-section {
@@ -95,4 +99,3 @@ font-size: 1.6rem;
 .contact .submit-btn {
     font-size: 1.6rem;
 }
-
