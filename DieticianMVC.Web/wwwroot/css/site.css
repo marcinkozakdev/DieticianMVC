@@ -1,4 +1,5 @@
-*{
+
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -6,58 +7,95 @@
 
 html {
     scroll-behavior: smooth;
+    font-size: 62.5%;
+}
+
+body{
+font-family: 'Inter', sans-serif;
+font-size: 1.6rem;
+}
+
+.hero-shadow {
+    position:absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: -1;
+}
+
+.green-color {
+    color: #9db13e
+}
+
+.navbar {
+    opacity: 0.95;
+}
+
+}
+.nav-link,
+.navbar-toggler-icon {
+    font-size: 1.5rem;
+}
+
+.navbar-toggler{
+    font-size:3rem;
 }
 
 
-
-li {
-    list-style: none;
-}
-
-.nav-link {
-    transition: all 0.2s;
-    position: relative;
-}
-
-    .nav-link::after {
-        content: '';
-        opacity: 0;
-        transition: all 0.2s;
-        height: 2px;
-        width: 100%;
-        background-color: #9db13e;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-    }
-
-    .nav-link:hover:after {
-        opacity: 1;
-    }
-
-@media(mx-width:650px) {
-    .nav-link {
-        position: fixed;
-        top: 60px;
-        left: 0;
-        background-color: gray;
-        width: 100%;
-        padding: 10px 0 25px;
-    }
-}
 
 .btn {
     position: relative;
     transition: all 0.2s;
-    background-color:darkgray;
-    background: rgba(255,255,255,255.75);
-    margin-left: 10px;
-    margin-right: 10px;
+    background: #9db13e;
     transition: all 0.2s;
-    border-radius:2px;
+    border-radius: 2px;
+    font-size: 1.5rem;
 }
+
     .btn:hover {
-        background-color: #9db13e !important;
-        color: white;
+        background-color: white !important;
     }
 
+
+
+.home{
+    position: relative;
+    height: 60rem;
+    background-image: url('../images/tlo-1.png');
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+}
+
+    .home .btn {
+        padding: 1rem 2rem;
+        font-size: 1.4rem;
+    }
+
+    .home .display-1 {
+        font-size: 3rem;
+    }
+
+    .home .welcome-text {
+        font-size: 1.6rem;
+        padding-top: 40px;
+        padding-bottom: 30px;
+    }
+
+.home-section {
+    height: 100vh;
+    background-size: cover;
+}
+
+/* kontakt */
+.contact h3 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.contact .submit-btn {
+    font-size: 1.6rem;
+}

@@ -2,21 +2,146 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div style="background-size:cover; background-position:center center; height:100vh">
-    <img src="~/images/image.png" class="img-fluid" alt="obrazek">
-    <div class="row" style="text-align:center;">
+<section id="home" class="home">
+    <div class="container h-100 d-flex flex-column justify-content-center align-items-center text-light text-center">
+        <p class="display-1">Popraw efektywność i wygodę swojej pracy! </p>
+        <p class="welcome-text w-50 mb-5 justify-content-center">
+            Aplikacja dla dietetyków i ich pacjentów, która sprawia że zarządzanie pacjentami oraz układanie jadłospisów jest przyjemne i sprawne, a pacjentom ułatwia wymianę danych ze swoim dietetykiem.
+        </p>
+        <a asp-area="Identity" asp-page="/Account/Register" class="btn">
+        Wypróbuj za darmo
+        </a>
+        <div class="hero-shadow"></div>
+    </div>
+</section>
 
-        <div>
-            <h1>Dietician</h1>
-            <p>
-                Aplikacja stworzona z myślą o dietetykach, sprawia że układanie jadłospisów jest szybkie, a zarządzanie pacjentami przyjemne i sprawne.
-            </p>
-            <div class="col">
-                <a asp-area="Identity" asp-page="/Account/Register" class="btn bg-transparent" style="font-family: 'Roboto', sans-serif; font-size:15px;">
-                    Wypróbuj za darmo
-                </a>
+<section id="features" class="home-features py-5 text-dark">
+    <p class="display-1 text-center pt-5">Funkcje</p>
+    <div class="container py-4">
+        <div class="row m-0 align-items-center">
+            <div class="col-md-6">
+                <h2>Moduł dietetyka</h2>
+                <p>
+                    Pozwala on dietetykowi na łatwie zarządzanie swoimi podobiecznymi.
+                    <ul>
+                        <li>
+                            oznaczanie alergii, nietolerancji oraz preferencji Twoich pacjentów
+                        </li>
+                        <li>
+                            monitorowanie postępów i efektów diety u pacjentów
+                        </li>
+                        <li>
+                            dodawanie notatek o Twoich pacjentach
+                        </li>
+                        <li>
+                            przeprowadzanie wywiadów żywieniowych online
+                        </li>
+                        <li>
+                            możliwość ustawienia statusu dla danego pacjenta co pozwala na szybkie filtrowanie swoich podopiecznych
+                        </li>
+                      
+                    </ul>
+                </p>
+            </div>
+            <div class="col-md-6">
+                <img src="~/images/dietician-modul.png" alt="Dietician" class="img-fluid">
+            </div>
+        </div>
+        </div>
+
+        <div class="container py-4">
+            <div class="row m-0 align-items-center">
+            <div class="col-md-6">
+                <img src="~/images/patient-modul-2.png" alt="Dietician" class="img-fluid">
+            </div>
+                <div class="col-md-6">
+                    <h2>Moduł pacjenta</h2>
+                    <p>
+                        Pozwala on dietetykowi na łatwie zarządzanie swoimi podobiecznymi.
+                        <ul>
+                            <li>
+                               możliwość wypełniania wywiadu żywieniowego online
+                            </li>
+                            <li>
+                                monitorowanie postępów i efektów diety
+                            </li>
+                            <li>
+                                możliwość wprowadzania pomiarów
+                            </li>
+                            <li>
+                            oznaczanie alergii, nietolerancji oraz preferencji
+                            </li>
+
+                        </ul>
+                    </p>
+                </div>
+            
+               
+            </div>
+
+        <div class="container py-4">
+            <div class="row m-0 align-items-center">
+                <div class="col-md-6">
+                    <h2>Kreator jadłospisów</h2>
+                    <p>
+                        Pozwala on pacjentowi na szybkie uzupełnianie potrzebnych danych podczas współpracy z dietetykiem.
+                        <ul>
+                            <li>
+                                możliwość tworzenia własnej bazy przepisów
+                            </li>
+                            <li>
+                                tworzenie własnych miar składników
+                            </li>
+                            <li>
+                                dodawanie wskazówek do jadłospisu
+                            </li>
+                            <li>
+                                generowanie jadłospisu w formacie .pdf
+                            </li>
+                        </ul>
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <img src="~/images/menu-modul.png" alt="Dietician" class="img-fluid">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section id="contact" class="contact bg-dark text-light py-5">
+    <div class="container text-center py-5">
+        <p class="display-3 pb-lg-4">Napisz do nas!</p>
+        <div class="row">
+            <div class="col-lg-9 my-5 m-lg-0">
+                <form>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Imię i nazwisko">
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Adres mailowy">
+                    </div>
+                    <div class="input-group mb-3">
+                        <textarea rows="6" class="form-control" placeholder="Treść wiadomości"></textarea>
+                    </div>
+                    <input type="submit" value="Wyślij" class="btn px-4 py-2 submit-btn">
+                </form>
+            </div>
+            <div class="col-lg-3 mt-4 m-lg-0 contact-info">
+                <h3>Adres:</h3>
+                <p class="green-color">Dietician</p>
+                <p><i class="bi bi-geo-alt green-color"></i> ul. Testowa 0 <br> 00-000 Kraków</p>
+                <p><i class="bi bi-phone green-color"></i>+48 000 000 000</p>
+                <p><i class="bi bi-at green-color"></i> kontakt@mail.pl</p>
             </div>
         </div>
     </div>
-</div>
+</section>
 
+<footer class="bg-dark text-light border-top text-muted">
+    <p class="text-center mb-0 py-5">
+        <i class="fas fa-copyright iconItem"></i>
+        2023 - Dietician
+    </p>
+</footer>
