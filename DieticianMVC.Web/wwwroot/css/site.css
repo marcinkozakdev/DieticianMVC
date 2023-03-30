@@ -15,6 +15,13 @@ font-family: 'Inter', sans-serif;
 font-size: 1.6rem;
 }
 
+.login {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 150px;
+}
+
 .hero-shadow {
     position:absolute;
     top:0;
@@ -58,8 +65,6 @@ font-size: 1.6rem;
         background-color: white !important;
     }
 
-
-
 .home{
     position: relative;
     height: 60rem;
@@ -99,3 +104,4 @@ font-size: 1.6rem;
 .contact .submit-btn {
     font-size: 1.6rem;
 }
+
