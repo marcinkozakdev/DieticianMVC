@@ -13,13 +13,15 @@ html {
 body{
 font-family: 'Inter', sans-serif;
 font-size: 1.6rem;
+background-color: #ebebeb;
 }
 
 .login {
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 150px;
+    border-radius: 5px;
+    margin-top: 15rem;
+
+}
+.form-group{
 }
 
 .hero-shadow {
