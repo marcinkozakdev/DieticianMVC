@@ -12,7 +12,15 @@
 
                 <div class="text-center align-items-center justify-content-center">
                     <img src="~/images/user-modul.png" />
-                    <h2>Logowanie</h2>
+                    <h1>Zaloguj się</h1>
+                </div>
+                <div class="text-center align-items-center justify-content-center">
+                    <h5>
+                        Nie masz konta? <a id="forgot-password" class="green-color link-dark"
+                                       asp-page="./Login">
+                            Zarejestruj się
+                        </a>
+                    </h5>
                 </div>
                 <hr />
 
@@ -28,7 +36,7 @@
                         <span asp-validation-for="Input.Password" class="text-danger h5"></span>
                     </div>
 
-                    <div class="form-group row h4">
+                    <div class="form-group row h5">
                         <div class="col-6 checkbox">
                             <label asp-for="Input.RememberMe" class="form-label">
                                 <input class="form-check-input mt-1" asp-for="Input.RememberMe" /> Zapamiętaj mnie
