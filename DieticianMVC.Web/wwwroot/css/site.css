@@ -13,6 +13,12 @@ html {
 body{
 font-family: 'Inter', sans-serif;
 font-size: 1.6rem;
+background-color: #ebebeb;
+}
+
+.login {
+    margin-top: 15rem;
+    background-color: white;
 }
 
 .hero-shadow {
@@ -58,8 +64,6 @@ font-size: 1.6rem;
         background-color: white !important;
     }
 
-
-
 .home{
     position: relative;
     height: 60rem;
@@ -99,3 +103,13 @@ font-size: 1.6rem;
 .contact .submit-btn {
     font-size: 1.6rem;
 }
+
+.form-check-input:checked {
+    background: #9db13e;
+    border-color: #9db13e;
+}
+
+.form-control{
+    font-size: 1.6rem;
+}
+
