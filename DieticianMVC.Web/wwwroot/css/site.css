@@ -17,11 +17,8 @@ background-color: #ebebeb;
 }
 
 .login {
-    border-radius: 5px;
     margin-top: 15rem;
-
-}
-.form-group{
+    background-color: white;
 }
 
 .hero-shadow {
@@ -104,6 +101,15 @@ background-color: #ebebeb;
 }
 
 .contact .submit-btn {
+    font-size: 1.6rem;
+}
+
+.form-check-input:checked {
+    background: #9db13e;
+    border-color: #9db13e;
+}
+
+.form-control{
     font-size: 1.6rem;
 }
 
