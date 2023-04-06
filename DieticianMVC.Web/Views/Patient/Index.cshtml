@@ -4,77 +4,76 @@
     ViewData["Title"] = "Lista pacjentów";
 }
 
-<h3>Pacjenci</h3>
-<hr />
-<p>
-    <div class="form-group">
-        <a asp-action="Add"><input type="button" value="+ Dodaj" class="btn btn-primary" /></a>
-    </div>
-</p>
-<form asp-action="Index" asp-controller="Patient" method="post">
-    <div class="row">
-        <input type="search" asp-for="SearchString" name="searchString" id="searchString" />
-    </div>
-    <div class="row">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>
-                        Imię i Nazwisko
-                    </th>
-                    <th>
-                        Email
-                    </th>
-                    <th>
-                        Status
-                    </th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model.Patients)
-                {
+<section class="patients">
+    <h3>Pacjenci</h3>
+    <hr />
+    <form asp-action="Index" asp-controller="Patient" method="post">
+        <div class="row row">
+            <input type="search" asp-for="SearchString" name="searchString" id="searchString" placeholder="Wyszukaj"/>
+            <a asp-action="Add"><input type="button" value="+ Dodaj" class="btn" /></a>
+        </div>
+        <div class="row">
+            <table class="table">
+                <thead>
                     <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.FullName)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.EmailAddress)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.PatientStatus)
-                        </td>
-                        <td>
-                            @Html.ActionLink("Edit", "Edit", new { id=item.Id })
-                            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-                        </td>
+                        <th>
+                            Imię i Nazwisko
+                        </th>
+                        <th>
+                            Email
+                        </th>
+                        <th>
+                            Status
+                        </th>
+                        <th></th>
                     </tr>
-                }
-            </tbody>
-        </table>
-    </div>
-    <div class="row">
-        <table>
-            <tr>
-                @for (int i = 1; i < Math.Ceiling(Model.Count / (double)Model.PageSize); i++)
-                {
-                    <td>
-                        @if (i != Model.CurrentPage)
-                        {
-                            <a href="javascript:PagerClick(@i)">@i</a>
-                        }
-                        else
-                        {
-                            <span>@i</span>
-                        }
-                    </td>
-                }
-            </tr>
-        </table>
-        <input type="hidden" name="pageNumber" id="pageNumber" />
-        <input type="hidden" name="pageSize" id="pageSize" value="3" />
-    </div>
-</form>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Patients)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FullName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EmailAddress)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PatientStatus)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id=item.Id })
+                                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="row">
+            <table>
+                <tr>
+                    @for (int i = 1; i < Math.Ceiling(Model.Count / (double)Model.PageSize); i++)
+                    {
+                        <td>
+                            @if (i != Model.CurrentPage)
+                            {
+                                <a href="javascript:PagerClick(@i)">@i</a>
+                            }
+                            else
+                            {
+                                <span>@i</span>
+                            }
+                        </td>
+                    }
+                </tr>
+            </table>
+            <input type="hidden" name="pageNumber" id="pageNumber" />
+            <input type="hidden" name="pageSize" id="pageSize" value="3" />
+        </div>
+    </form>
+</section>
+
 
 @section Scripts
     {
