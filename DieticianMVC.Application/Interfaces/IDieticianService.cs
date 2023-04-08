@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DieticianMVC.Application.Interfaces
+﻿namespace DieticianMVC.Application.Interfaces
 {
-    internal interface IDieticianService
+    public interface IDieticianService
     {
+
     }
 }
