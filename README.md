@@ -10,8 +10,6 @@
 ## General Information
 The application is designed to streamline the work of dieticians. It allows you to arrange menus and manage your patient base. The application allows you to create your database of meals, products or ingredients, as well as to create patient accounts for each patient of a given dietitian and to assign him or her an appropriate role. With this solution, it is possible to extend the application with new functionalities in the future. Most functionalities are available in the Features section. This application is built in Clean Architecture and Service-Repository pattern
 
-Translated with www.DeepL.com/Translator (free version)
-
 ## Technologies Used
 * .NET Core 6.0
 * ASP.NET
