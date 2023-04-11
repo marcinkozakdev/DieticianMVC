@@ -17,11 +17,11 @@ namespace DieticianMVC.Infrastructure.Repositories
             return dietician;
         }
 
-        public Dietician CreateDietician(Dietician dietician)
+        public int CreateDietician(Dietician dietician)
         {
             _context.Dieticianes.Add(dietician);
             _context.SaveChanges();
-            return dietician;
+            return dietician.Id;
         }
 
         public Dietician UpdateDietician(Dietician dietician)
