@@ -33,12 +33,12 @@ The application is under development.
 
 ## Screenshots
 ### Landing page
-![Landing page](/DieticianMVC.Web/wwwroot/ScreenShots/welcome_page_1.PNG)
-![Landing page](/DieticianMVC.Web/wwwroot/ScreenShots/welcome_page_2.PNG)
+![Landing page](/DieticianMVC.Web/wwwroot/ScreenShots/welcome_page_1.png)
+![Landing page](/DieticianMVC.Web/wwwroot/ScreenShots/welcome_page_2.png)
 ### Login page
-![Login page](/DieticianMVC.Web/wwwroot/ScreenShots/login_page.PNG)
+![Login page](/DieticianMVC.Web/wwwroot/ScreenShots/login_page_2.png)
 ### Register page
-![Login page](/DieticianMVC.Web/wwwroot/ScreenShots/register_page.PNG)
+![Login page](/DieticianMVC.Web/wwwroot/ScreenShots/register_page_2.png)
 
 
 
