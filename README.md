@@ -1,4 +1,5 @@
 # DieticianMVC
+> This is an application for dieticians to manage their patients and create menus, created with ASP.NET.
 
 ## Table of Contents
 * [General Info](#general-information)
