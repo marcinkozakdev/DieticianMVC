@@ -31,7 +31,14 @@ The application is designed to streamline the work of dieticians. It allows you 
 ## Project Status
 The application is under development.
 
-* [Screenshots](#screenshots)
+## Screenshots
+### Landing page
+![Landing page](/DieticianMVC.Web/wwwroot/images/ScreenShots/welcome_page_1.PNG)
+![Landing page](/DieticianMVC.Web/wwwroot/images/ScreenShots/welcome_page_2.PNG)
+### Login page
+![Login page](/DieticianMVC.Web/wwwroot/images/ScreenShots/login_page.PNG)
+### Register page
+![Login page](/DieticianMVC.Web/wwwroot/images/ScreenShots/register_page.PNG)
 
 
 
