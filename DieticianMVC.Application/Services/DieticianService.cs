@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using DieticianMVC.Application.ViewModels.Patient;
+using DieticianMVC.Application.ViewModels.Dietician;
 using DieticianMVC.Domain.Interfaces;
 using DieticianMVC.Domain.Model;
 
@@ -23,53 +23,36 @@ namespace DieticianMVC.Application.Services
             return id;
         }
 
-        public void DeleteBodyMeasurements(int bodyMeasurementsId)
+        public void DeleteDietician(int dieticianId)
         {
-            _bodyMeasurementsRepository.DeleteBodyMeasurements(bodyMeasurementsId);
+            _dieticianRepository.DeleteDietician(dieticianId);
         }
 
-        public void DeletePatient(int patientId)
+        public DieticianDetailsVm GetDieticianDetails(int dieticianId)
         {
-            _patientRepository.DeletePatient(patientId);
-        }
-       
-        public NewBodyMeasurementsVm GetBodyMeasurementsForEdit(int bodyMeasurementsId)
-        {
-            var bodyMeasurements = _bodyMeasurementsRepository.GetBodyMeasurementsById(bodyMeasurementsId);
-            var bodyMeasurementsVm = _mapper.Map<NewBodyMeasurementsVm>(bodyMeasurements);
-            return bodyMeasurementsVm;
+            var dietician = _dieticianRepository.GetDieticianById(dieticianId);
+            var dieticianVm = _mapper.Map<DieticianDetailsVm>(dietician);
+            return dieticianVm;
         }
 
-        public PatientDetailsVm GetPatientDetails(int patientId)
+        public NewDieticianVm GetDieticianForEdit(int dieticianId)
         {
-            var patient = _patientRepository.GetPatient(patientId);
-            var patientVm = _mapper.Map<PatientDetailsVm>(patient);
-            return patientVm;
+            var dietician = _dieticianRepository.GetDieticianById(dieticianId);
+            var dieticianVm = _mapper.Map<NewDieticianVm>(dietician);
+            return dieticianVm;
         }
 
-        public NewPatientVm GetPatientForEdit(int patientId)
+
+        public void UpdatePatient(NewDieticianVm dieticianVm)
         {
-            var patient = _patientRepository.GetPatient(patientId);
-            var patientVm = _mapper.Map<NewPatientVm>(patient);
-            return patientVm;
+            var dietician = _mapper.Map<Dietician>(dieticianVm);
+            _dieticianRepository.UpdateDietician(dietician);
         }
 
-        public void UpdateBodyMeasurements(NewBodyMeasurementsVm bodyMeasurementsVm)
+        public void UpdatePatientDetails(DieticianDetailsVm dieticianVm)
         {
-            var bodyMeasurements = _mapper.Map<BodyMeasurements>(bodyMeasurementsVm);
-            _bodyMeasurementsRepository.UpdateBodyMeasurements(bodyMeasurements);
-        }
-
-        public void UpdatePatient(NewPatientVm patientVm)
-        {
-            var patient = _mapper.Map<Patient>(patientVm);
-            _patientRepository.UpdatePatient(patient);
-        }
-
-        public void UpdatePatientDetails(PatientDetailsVm patientVm)
-        {
-            var patient = _mapper.Map<Patient>(patientVm);
-            _patientRepository.UpdatePatient(patient);
+            var dietician = _mapper.Map<Dietician>(dieticianVm);
+            _dieticianRepository.UpdateDietician(dietician);
         }
     }
 }
