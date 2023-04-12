@@ -20,7 +20,7 @@ The application is designed to streamline the work of dieticians. It allows you 
 * Bootstrap 4.5.2
 
 ## Features
-* Patient management-CRUD operations for the nutritionist
+* Dietician management-CRUD operations for the dietician
 * Patient management- CRUD operations for a patient
 * Patient account creation/editing-each dietitian can create an account for his/her patient with basic information, e.g. personal information, age, weight, body measurements.
 * Viewing and managing patient lists/meals/dishes using DataTables.
