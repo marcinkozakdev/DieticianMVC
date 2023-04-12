@@ -6,6 +6,7 @@ namespace DieticianMVC.Domain.Interfaces
     {
         Address AddAddress(Address address);
         Address GetAddressById(int addressId);
+        IQueryable<Address> GetAddressByDietician(int dieticianId);
         Address UpdateAddress(Address address);
         void DeleteAddress(int addressId);
     }
