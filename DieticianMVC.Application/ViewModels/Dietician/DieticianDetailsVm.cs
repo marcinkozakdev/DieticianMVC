@@ -1,14 +1,9 @@
 ﻿using AutoMapper;
-using DieticianMVC.Domain.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using DieticianMVC.Application.Mapping;
 
 namespace DieticianMVC.Application.ViewModels.Dietician
 {
-    public class DieticianDetailsVm
+    public class DieticianDetailsVm : IMapFrom<DieticianMVC.Domain.Model.Dietician>
     {
         public int Id { get; set; }
         public string FirstName { get; set; }
@@ -17,11 +12,11 @@ namespace DieticianMVC.Application.ViewModels.Dietician
         public string NIP { get; set; }
         public string EmailAddress { get; set; }
         public string PhoneNumber { get; set; }
-        public virtual ICollection<Address> Addresses { get; set; }
+        public virtual List<AddressForListVm> Addresses { get; set; }
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<NewDieticianVm, DieticianMVC.Domain.Model.Dietician>().ReverseMap();
+            profile.CreateMap<DieticianMVC.Domain.Model.Dietician, DieticianDetailsVm>();
         }
     }
 }

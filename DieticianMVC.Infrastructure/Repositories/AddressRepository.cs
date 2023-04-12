@@ -1,5 +1,6 @@
 ﻿using DieticianMVC.Domain.Interfaces;
 using DieticianMVC.Domain.Model;
+using Microsoft.EntityFrameworkCore;
 
 namespace DieticianMVC.Infrastructure.Repositories
 {
@@ -41,6 +42,17 @@ namespace DieticianMVC.Infrastructure.Repositories
                 _context.Addresses.Remove(address);
                 _context.SaveChanges();
             }
+        }
+
+        public IQueryable<Address> GetAddressByDietician(int dieticianId)
+        {
+            IQueryable<Address> addresses = null;
+            var dietician = _context.Dieticianes.AsNoTracking().Where(e => e.Id == dieticianId);
+            if (dietician != null)
+            {
+                addresses = _context.Addresses.AsNoTracking().Where(v => v.DieticianId == dieticianId);
+            }
+            return addresses;
         }
     }
 }

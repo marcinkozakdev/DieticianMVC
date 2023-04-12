@@ -1,9 +1,10 @@
 ﻿using AutoMapper;
+using DieticianMVC.Application.Mapping;
 using DieticianMVC.Domain.Model;
 
 namespace DieticianMVC.Application.ViewModels.Dietician
 {
-    public class NewDieticianVm
+    public class NewDieticianVm : IMapFrom<DieticianMVC.Domain.Model.Dietician>
     {
         public int Id { get; set; }
         public string FirstName { get; set; }
@@ -12,8 +13,7 @@ namespace DieticianMVC.Application.ViewModels.Dietician
         public string NIP { get; set; }
         public string EmailAddress { get; set; }
         public string PhoneNumber { get; set; }
-        public virtual ICollection<Address> Addresses { get; set; }
-
+        public virtual List<Address> Addresses { get; set; }
 
         public void Mapping(Profile profile)
         {
