@@ -31,7 +31,7 @@ namespace DieticianMVC.Web.Controllers
             var empVm = _dieticianService.GetDieticianDetails(id);
             if (empVm == null)
             {
-                _logger.LogInformation("Can't show dietician details - employee dosen't exist");
+                _logger.LogInformation("Can't show dietician details - dietician dosen't exist");
                 return RedirectToAction("Index");
             }
             return View(empVm);
