@@ -27,6 +27,17 @@ namespace DieticianMVC.Application.Services
             return id;
         }
 
+        public ListDieticianForListVm GetAllDieticiansForList()
+        {
+            var dieticians = _dieticianRepository.GetAllDieticians().ProjectTo<DieticianForListVm>(_mapper.ConfigurationProvider).ToList();
+            var dieticiansVm = new ListDieticianForListVm()
+            {
+                Dieticians = dieticians,
+                Count = dieticians.Count
+            };
+            return dieticiansVm;
+        }
+
         public Dietician GetDieticianById(int id)
         {
             var dietician = _dieticianRepository.GetDieticianById(id);
@@ -45,14 +56,22 @@ namespace DieticianMVC.Application.Services
             }
             return dieticianVm;
         }
+        public DieticianDetailsVm GetDieticianDetails(string userId)
+        {
+            var dietician = _dieticianRepository.GetDieticianByUserId(userId);
+            var dieticianVm = GetDieticianDetails(dietician.Id);
+            return dieticianVm;
+        }
+
         public void DeleteDietician(int dieticianId)
         {
             _dieticianRepository.DeleteDietician(dieticianId);
         }
 
-        public NewDieticianVm GetDieticianForEdit(int dieticianId)
+        public NewDieticianVm GetDieticianForEdit(string id)
         {
-            var dietician = _dieticianRepository.GetDieticianById(dieticianId);
+            var user = _dieticianRepository.GetDieticianByUserId(id);
+            var dietician = _dieticianRepository.GetDieticianById(user.Id);
             var dieticianVm = _mapper.Map<NewDieticianVm>(dietician);
             return dieticianVm;
         }
@@ -96,11 +115,21 @@ namespace DieticianMVC.Application.Services
         {
             _addressRepository.DeleteAddress(addressId);
         }
-
         public IQueryable<AddressForListVm> GetAddressByDietician(int id)
         {
             var addresVm = _addressRepository.GetAddressByDietician(id).ProjectTo<AddressForListVm>(_mapper.ConfigurationProvider);
             return addresVm;
+        }
+
+        public Dietician GetEmployeeByUserId(string id)
+        {
+            var dietician = _dieticianRepository.GetDieticianByUserId(id);
+            return dietician;
+        }
+
+        public bool CheckIfEmployeeExist(string id)
+        {
+            return _dieticianRepository.GetDieticianByUserId(id) == null;
         }
     }
 }

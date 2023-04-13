@@ -11,6 +11,9 @@ namespace DieticianMVC.Application
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
             services.AddTransient<IPatientService, PatientService>();
+            services.AddTransient<IDieticianService, DieticianService>();
+            services.AddTransient<IUserService, UserService>();
+
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             return services;
         }

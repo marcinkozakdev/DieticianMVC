@@ -1,8 +1,12 @@
-﻿namespace DieticianMVC.Domain.Model
+﻿using Microsoft.AspNetCore.Identity;
+
+namespace DieticianMVC.Domain.Model
 {
     public class Dietician
     {
         public int Id { get; set; }
+        public string UserId { get; set; }
+        public IdentityUser User { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string CompanyName { get; set; }

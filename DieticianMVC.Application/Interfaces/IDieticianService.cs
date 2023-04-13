@@ -7,9 +7,10 @@ namespace DieticianMVC.Application.Interfaces
     {
         int CreateDietician(NewDieticianVm dieticianVm);
         Dietician GetDieticianById(int id);
-        DieticianDetailsVm GetDieticianDetails(int dieticianId);
+        ListDieticianForListVm GetAllDieticiansForList();
+        DieticianDetailsVm GetDieticianDetails(string dieticianId);
         void DeleteDietician(int dieticianId);
-        NewDieticianVm GetDieticianForEdit(int dieticianId);
+        NewDieticianVm GetDieticianForEdit(string dieticianId);
         void UpdateDietician(NewDieticianVm dieticianVm);
         void UpdateDieticianDetails(DieticianDetailsVm dieticianVm);
         Address AddAddress(NewAddressVm addressVm);
@@ -18,5 +19,7 @@ namespace DieticianMVC.Application.Interfaces
         void UpdateAddress(NewAddressVm addressVm);
         void DeleteAddress(int addressId);
         IQueryable<AddressForListVm> GetAddressByDietician(int id);
+        Dietician GetEmployeeByUserId(string id);
+        bool CheckIfEmployeeExist(string id);
     }
 }
