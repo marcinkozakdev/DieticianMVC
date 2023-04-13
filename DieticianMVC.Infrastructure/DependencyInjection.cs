@@ -9,6 +9,8 @@ namespace DieticianMVC.Infrastructure
         public static IServiceCollection AddInfrastructure(this IServiceCollection services)
         {
             services.AddTransient<IPatientRepository, PatientRepository>();
+            services.AddTransient<IDieticianRepository, DieticianRepository>();
+            services.AddTransient<IAddressRepository, AddressRepository>();
             services.AddTransient<IBodyMeasurementsRepository, BodyMeasurementsRepository>();
             return services;
         }

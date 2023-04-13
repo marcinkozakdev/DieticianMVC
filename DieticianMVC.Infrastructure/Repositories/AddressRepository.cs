@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DieticianMVC.Infrastructure.Repositories
 {
-    public class AddressRepository :IAddressRepository
+    public class AddressRepository : IAddressRepository
     {
         private readonly Context _context;
         public AddressRepository(Context context)
@@ -36,7 +36,7 @@ namespace DieticianMVC.Infrastructure.Repositories
 
         public void DeleteAddress(int addressId)
         {
-            var address = _context.Addresses.Find(addressId);
+            var address = _context.Addresses.FirstOrDefault(d=>d.Id == addressId);
             if (address != null)
             {
                 _context.Addresses.Remove(address);

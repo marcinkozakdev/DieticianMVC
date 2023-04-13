@@ -6,6 +6,7 @@ namespace DieticianMVC.Application.ViewModels.Dietician
     public class DieticianDetailsVm : IMapFrom<DieticianMVC.Domain.Model.Dietician>
     {
         public int Id { get; set; }
+        public string UserId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string CompanyName { get; set; }
