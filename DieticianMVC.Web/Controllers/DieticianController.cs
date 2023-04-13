@@ -26,12 +26,12 @@ namespace DieticianMVC.Web.Controllers
         [HttpGet]
         //[Authorize(Roles = "Accountant, Chief, Admin")]
         [Route("dietician/profile/{id}")]
-        public IActionResult ViewEmployee(string id)
+        public IActionResult ViewDietician(string id)
         {
             var empVm = _dieticianService.GetDieticianDetails(id);
             if (empVm == null)
             {
-                _logger.LogInformation("Can't show employee details - employee dosen't exist");
+                _logger.LogInformation("Can't show dietician details - dietician dosen't exist");
                 return RedirectToAction("Index");
             }
             return View(empVm);
