@@ -19,7 +19,7 @@ namespace DieticianMVC.Application.Interfaces
         void UpdateAddress(NewAddressVm addressVm);
         void DeleteAddress(int addressId);
         IQueryable<AddressForListVm> GetAddressByDietician(int id);
-        Dietician GetEmployeeByUserId(string id);
-        bool CheckIfEmployeeExist(string id);
+        Dietician GetDieticianByUserId(string id);
+        bool CheckIfDieticianExist(string id);
     }
 }
