@@ -1,5 +1,6 @@
 ﻿using DieticianMVC.Application.Interfaces;
 using DieticianMVC.Application.ViewModels.Dietician;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
@@ -24,17 +25,106 @@ namespace DieticianMVC.Web.Controllers
         }
 
         [HttpGet]
-        //[Authorize(Roles = "Accountant, Chief, Admin")]
+        //[Authorize(Roles = "Admin")]
         [Route("dietician/profile/{id}")]
         public IActionResult ViewDietician(string id)
         {
-            var empVm = _dieticianService.GetDieticianDetails(id);
-            if (empVm == null)
+            var dieticianVm = _dieticianService.GetDieticianDetails(id);
+            if (dieticianVm == null)
             {
                 _logger.LogInformation("Can't show dietician details - dietician dosen't exist");
                 return RedirectToAction("Index");
             }
-            return View(empVm);
+            return View(dieticianVm);
+        }
+
+        [Route("dietician/details")]
+        public IActionResult ViewDietician()
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var dieticianVm = _dieticianService.GetDieticianDetails(userId);
+            if (dieticianVm == null)
+            {
+                _logger.LogInformation("Can't show dietician details - employee dosen't exist");
+                return RedirectToAction("Index");
+            }
+            return View(dieticianVm);
+        }
+
+        [Route("dietician/edit")]
+        public IActionResult EditDietician()
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var dieticianVm = _dieticianService.GetDieticianForEdit(userId);
+            if (dieticianVm == null)
+            {
+                _logger.LogInformation("Can't edit dietician - employee dosen't exist");
+                return RedirectToAction("Index");
+            }
+            return View(dieticianVm);
+        }
+
+        [HttpPost]
+        [Route("dietician/edit")]
+        public IActionResult EditDietician(NewDieticianVm dieticianVm)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(dieticianVm.Id);
+            }
+            _dieticianService.UpdateDietician(dieticianVm);
+            return RedirectToAction("ViewDietician");
+        }
+
+        //[Authorize(Roles = "Admin")]
+        public IActionResult Delete(int id)
+        {
+            _dieticianService.DeleteDietician(id);
+            _logger.LogInformation("Dietician " + id + " has been deleted");
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult New()
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var model = new NewAddressVm
+            {
+                DieticianId = _dieticianService.GetDieticianByUserId(userId).Id
+            };
+            return PartialView("AddNewAddressForDietician", model);
+        }
+
+        [HttpPost]
+        public IActionResult AddNewAddressForDietician(NewAddressVm addressVm)
+        {
+            var id = _dieticianService.AddAddress(addressVm);
+            return RedirectToAction("EditDietician");
+        }
+
+       
+        public IActionResult EditAddress(int id)
+        {
+            var model = _dieticianService.GetAddressForEdit(id);
+            if (model == null)
+            {
+                _logger.LogInformation("Can't edit address - address dosen't exist");
+                return RedirectToAction("EditDietician");
+            }
+            return PartialView("EditAddressForDietician", model);
+        }
+
+        [HttpPost]
+        public IActionResult EditAddressForDietician(NewAddressVm addressVm)
+        {
+            _dieticianService.UpdateAddress(addressVm);
+            return RedirectToAction("EditDietician");
+
+        }
+
+        public IActionResult DeleteAddress(int id)
+        {
+            _dieticianService.DeleteAddress(id);
+            return RedirectToAction("EditDietician");
         }
 
     }

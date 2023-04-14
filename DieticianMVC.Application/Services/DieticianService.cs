@@ -121,13 +121,13 @@ namespace DieticianMVC.Application.Services
             return addresVm;
         }
 
-        public Dietician GetEmployeeByUserId(string id)
+        public Dietician GetDieticianByUserId(string id)
         {
             var dietician = _dieticianRepository.GetDieticianByUserId(id);
             return dietician;
         }
 
-        public bool CheckIfEmployeeExist(string id)
+        public bool CheckIfDieticianExist(string id)
         {
             return _dieticianRepository.GetDieticianByUserId(id) == null;
         }

@@ -46,13 +46,13 @@ builder.Services.AddAuthentication().AddGoogle(options =>
     options.ClientSecret = googleAuthNSection["ClientSecret"];
 });
 
-builder.Services.AddAuthorization(options =>
-{
-options.AddPolicy("CanAddNewPatient", policy =>
-    policy.RequireClaim("ViewPatient", "AddNewPatient"));
-    options.AddPolicy("CanViewPatients", policy =>
-    policy.RequireClaim("ViewPatients"));
-});
+//builder.Services.AddAuthorization(options =>
+//{
+//options.AddPolicy("CanAddNewPatient", policy =>
+//    policy.RequireClaim("ViewPatient", "AddNewPatient"));
+//    options.AddPolicy("CanViewPatients", policy =>
+//    policy.RequireClaim("ViewPatients"));
+//});
 
 var app = builder.Build();
 var loggerFactory = app.Services.GetService<ILoggerFactory>();
