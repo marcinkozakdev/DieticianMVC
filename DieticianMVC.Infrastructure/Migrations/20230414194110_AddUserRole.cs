@@ -11,9 +11,7 @@ namespace DieticianMVC.Infrastructure.Migrations
             migrationBuilder.AddColumn<string>(
                 name: "UserId",
                 table: "Dieticianes",
-                type: "nvarchar(450)",
-                nullable: false,
-                defaultValue: "");
+                nullable: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Dieticianes_UserId",
@@ -26,7 +24,7 @@ namespace DieticianMVC.Infrastructure.Migrations
                 column: "UserId",
                 principalTable: "AspNetUsers",
                 principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
+                onDelete: ReferentialAction.Restrict);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
