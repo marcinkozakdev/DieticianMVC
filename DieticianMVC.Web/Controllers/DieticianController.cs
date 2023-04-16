@@ -1,6 +1,5 @@
 ﻿using DieticianMVC.Application.Interfaces;
 using DieticianMVC.Application.ViewModels.Dietician;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
@@ -45,7 +44,7 @@ namespace DieticianMVC.Web.Controllers
             var dieticianVm = _dieticianService.GetDieticianDetails(userId);
             if (dieticianVm == null)
             {
-                _logger.LogInformation("Can't show dietician details - employee dosen't exist");
+                _logger.LogInformation("Can't show dietician details - dietician dosen't exist");
                 return RedirectToAction("Index");
             }
             return View(dieticianVm);
@@ -58,7 +57,7 @@ namespace DieticianMVC.Web.Controllers
             var dieticianVm = _dieticianService.GetDieticianForEdit(userId);
             if (dieticianVm == null)
             {
-                _logger.LogInformation("Can't edit dietician - employee dosen't exist");
+                _logger.LogInformation("Can't edit dietician - dietician dosen't exist");
                 return RedirectToAction("Index");
             }
             return View(dieticianVm);
@@ -126,6 +125,5 @@ namespace DieticianMVC.Web.Controllers
             _dieticianService.DeleteAddress(id);
             return RedirectToAction("EditDietician");
         }
-
     }
 }
