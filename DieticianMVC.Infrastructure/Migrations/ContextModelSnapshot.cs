@@ -17,7 +17,7 @@ namespace DieticianMVC.Infrastructure.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.15")
+                .HasAnnotation("ProductVersion", "6.0.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -60,7 +60,7 @@ namespace DieticianMVC.Infrastructure.Migrations
 
                     b.HasIndex("DieticianId");
 
-                    b.ToTable("Addresses");
+                    b.ToTable("Addresses", (string)null);
                 });
 
             modelBuilder.Entity("DieticianMVC.Domain.Model.BodyMeasurements", b =>
@@ -144,7 +144,7 @@ namespace DieticianMVC.Infrastructure.Migrations
 
                     b.HasIndex("PatientId");
 
-                    b.ToTable("BodyMeasurements");
+                    b.ToTable("BodyMeasurements", (string)null);
                 });
 
             modelBuilder.Entity("DieticianMVC.Domain.Model.Dietician", b =>
@@ -179,15 +179,9 @@ namespace DieticianMVC.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Dieticianes");
+                    b.ToTable("Dieticianes", (string)null);
                 });
 
             modelBuilder.Entity("DieticianMVC.Domain.Model.Dish", b =>
@@ -227,7 +221,7 @@ namespace DieticianMVC.Infrastructure.Migrations
 
                     b.HasIndex("MealId");
 
-                    b.ToTable("Dishes");
+                    b.ToTable("Dishes", (string)null);
                 });
 
             modelBuilder.Entity("DieticianMVC.Domain.Model.DislikedProduct", b =>
@@ -249,7 +243,7 @@ namespace DieticianMVC.Infrastructure.Migrations
 
                     b.HasIndex("PatientId");
 
-                    b.ToTable("DislikedProducts");
+                    b.ToTable("DislikedProducts", (string)null);
                 });
 
             modelBuilder.Entity("DieticianMVC.Domain.Model.FoodAllergiesAndIntolerances", b =>
@@ -271,7 +265,7 @@ namespace DieticianMVC.Infrastructure.Migrations
 
                     b.HasIndex("PatientId");
 
-                    b.ToTable("FoodAllergiesAndIntolerances");
+                    b.ToTable("FoodAllergiesAndIntolerances", (string)null);
                 });
 
             modelBuilder.Entity("DieticianMVC.Domain.Model.FoodPreferences", b =>
@@ -293,7 +287,7 @@ namespace DieticianMVC.Infrastructure.Migrations
 
                     b.HasIndex("PatientId");
 
-                    b.ToTable("FoodPreferences");
+                    b.ToTable("FoodPreferences", (string)null);
                 });
 
             modelBuilder.Entity("DieticianMVC.Domain.Model.HomeMeasure", b =>
@@ -319,7 +313,7 @@ namespace DieticianMVC.Infrastructure.Migrations
 
                     b.HasIndex("IngredientId");
 
-                    b.ToTable("HomeMeasures");
+                    b.ToTable("HomeMeasures", (string)null);
                 });
 
             modelBuilder.Entity("DieticianMVC.Domain.Model.Ingredient", b =>
@@ -370,7 +364,7 @@ namespace DieticianMVC.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Ingredients");
+                    b.ToTable("Ingredients", (string)null);
                 });
 
             modelBuilder.Entity("DieticianMVC.Domain.Model.LikedProduct", b =>
@@ -392,7 +386,7 @@ namespace DieticianMVC.Infrastructure.Migrations
 
                     b.HasIndex("PatientId");
 
-                    b.ToTable("LikedProducts");
+                    b.ToTable("LikedProducts", (string)null);
                 });
 
             modelBuilder.Entity("DieticianMVC.Domain.Model.Meal", b =>
@@ -417,7 +411,7 @@ namespace DieticianMVC.Infrastructure.Migrations
 
                     b.HasIndex("MenuId");
 
-                    b.ToTable("Meals");
+                    b.ToTable("Meals", (string)null);
                 });
 
             modelBuilder.Entity("DieticianMVC.Domain.Model.Menu", b =>
@@ -439,7 +433,7 @@ namespace DieticianMVC.Infrastructure.Migrations
 
                     b.HasIndex("PatientId");
 
-                    b.ToTable("Menus");
+                    b.ToTable("Menus", (string)null);
                 });
 
             modelBuilder.Entity("DieticianMVC.Domain.Model.Patient", b =>
@@ -480,7 +474,7 @@ namespace DieticianMVC.Infrastructure.Migrations
 
                     b.HasIndex("DieticianId");
 
-                    b.ToTable("Patients");
+                    b.ToTable("Patients", (string)null);
                 });
 
             modelBuilder.Entity("DieticianMVC.Domain.Model.PatientStatus", b =>
@@ -503,7 +497,7 @@ namespace DieticianMVC.Infrastructure.Migrations
                     b.HasIndex("PatientId")
                         .IsUnique();
 
-                    b.ToTable("PatientStatuses");
+                    b.ToTable("PatientStatuses", (string)null);
                 });
 
             modelBuilder.Entity("DishIngredient", b =>
@@ -518,7 +512,7 @@ namespace DieticianMVC.Infrastructure.Migrations
 
                     b.HasIndex("IngredientsId");
 
-                    b.ToTable("DishIngredient");
+                    b.ToTable("DishIngredient", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -743,17 +737,6 @@ namespace DieticianMVC.Infrastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("Patient");
-                });
-
-            modelBuilder.Entity("DieticianMVC.Domain.Model.Dietician", b =>
-                {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("DieticianMVC.Domain.Model.Dish", b =>
