@@ -16,7 +16,7 @@ namespace DieticianMVC.Web.Controllers
             _logger = logger;
         }
 
-        [Route("dietician/all")]
+        [Route("dietician/allprofiles")]
         public IActionResult Index()
         {
             var dieticians = _dieticianService.GetAllDieticiansForList();
