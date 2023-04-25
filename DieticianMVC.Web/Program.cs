@@ -21,8 +21,8 @@ builder.Services.AddApplication();
 builder.Services.AddInfrastructure();
 
 
-builder.Services.AddControllersWithViews();
-    //.AddFluentValidation();
+builder.Services.AddControllersWithViews()
+     .AddFluentValidation();
 
 builder.Services.AddRazorPages();
 
@@ -81,9 +81,12 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
-app.MapRazorPages();
+app.UseEndpoints(endpoints =>
+{
+    app.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Home}/{action=Index}/{id?}");
+    app.MapRazorPages();
+});
 
 app.Run();

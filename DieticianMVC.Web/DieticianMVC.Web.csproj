@@ -2,7 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>aspnet-DieticianMVC.Web-8E2ACED5-9652-43CB-B795-FBF4CE21CFB8</UserSecretsId>
   </PropertyGroup>
@@ -33,7 +32,6 @@
   <ItemGroup>
     <Folder Include="Areas\Identity\Data\" />
     <Folder Include="Data\Migrations\" />
-    <Folder Include="Views\Dietician\" />
   </ItemGroup>
 
 </Project>

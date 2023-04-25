@@ -14,7 +14,7 @@ namespace DieticianMVC.Web.Controllers
             _patientService = patientService;
         }
 
-        [Authorize(Policy = "CanViewPatients")]
+        //[Authorize(Policy = "CanViewPatients")]
         [HttpGet]
         public IActionResult Index()
         {

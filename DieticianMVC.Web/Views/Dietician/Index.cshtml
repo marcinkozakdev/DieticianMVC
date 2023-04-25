@@ -1,0 +1,53 @@
+﻿@model DieticianMVC.Application.ViewModels.Dietician.ListDieticianForListVm
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<section class="list container h-100 d-flex flex-column">
+    <h1>Lista dietetyków</h1>
+    <hr />
+    <table class="table table-bordered table-striped" id="table" width="100%">
+        <thead class=" thead-dark">
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Imię i Nazwisko
+                </th>
+                <th>
+                    Email
+                </th>
+                <th>
+                    Nazwa
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Dieticians)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FullName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EmailAddress)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CompanyName)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</section>
