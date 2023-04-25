@@ -1,6 +1,8 @@
 ﻿using DieticianMVC.Domain.Model;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
+
 
 namespace DieticianMVC.Infrastructure
 {

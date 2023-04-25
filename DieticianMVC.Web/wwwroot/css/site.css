@@ -112,8 +112,9 @@ background-color: #ebebeb;
     font-size: 1.6rem;
 }
 
-.patients {
-    margin-top:5rem;
-    padding: 5rem;
+.list {
+    margin-top:10rem;
+    padding: 1rem;
 }
+
 

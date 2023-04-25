@@ -4,6 +4,8 @@ using DieticianMVC.Application.Interfaces;
 using DieticianMVC.Application.ViewModels.Dietician;
 using DieticianMVC.Domain.Interfaces;
 using DieticianMVC.Domain.Model;
+using System.Linq;
+
 
 namespace DieticianMVC.Application.Services
 {

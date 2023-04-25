@@ -20,7 +20,7 @@ namespace DieticianMVC.Web.Controllers
         public IActionResult Index()
         {
             var dieticians = _dieticianService.GetAllDieticiansForList();
-            return View();
+            return View(dieticians);
         }
 
         [HttpGet]
