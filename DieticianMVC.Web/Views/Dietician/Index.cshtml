@@ -42,9 +42,14 @@
                         @Html.DisplayFor(modelItem => item.CompanyName)
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                        <a class="btn btn-danger btn-sm" href="@Url.Action("Delete", "Dietician", new { id = item.Id })">
+                            <i class="far fa-minus-square"></i>
+                            Usuń
+                        </a>
+                        <a class="btn btn-info btn-sm" href="@Url.Action("ViewDietician", "Dietician", new { id = item.Id })">
+                            <i class="fa fa-info"></i>
+                            Pokaż
+                        </a>
                     </td>
                 </tr>
             }

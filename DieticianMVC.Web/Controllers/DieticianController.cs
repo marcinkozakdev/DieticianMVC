@@ -16,7 +16,7 @@ namespace DieticianMVC.Web.Controllers
             _logger = logger;
         }
 
-        [Route("dietician/allprofiles")]
+        [Route("Dieticians")]
         public IActionResult Index()
         {
             var dieticians = _dieticianService.GetAllDieticiansForList();
@@ -25,7 +25,7 @@ namespace DieticianMVC.Web.Controllers
 
         [HttpGet]
         //[Authorize(Roles = "Admin")]
-        [Route("dietician/profile/{id}")]
+        [Route("Dietician/Profile/{id}")]
         public IActionResult ViewDietician(string id)
         {
             var dieticianVm = _dieticianService.GetDieticianDetails(id);
@@ -37,7 +37,22 @@ namespace DieticianMVC.Web.Controllers
             return View(dieticianVm);
         }
 
-        [Route("dietician/details")]
+        [Route("Dietician/New")]
+        public IActionResult AddDietician()
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            if (!_dieticianService.CheckIfDieticianExist(userId))
+            {
+                return RedirectToAction("ViewEmployee");
+            }
+            var model = new NewDieticianVm()
+            {
+                UserId = User.FindFirst(ClaimTypes.NameIdentifier).Value
+            };
+            return View(model);
+        }
+
+        [Route("Dietician/Details")]
         public IActionResult ViewDietician()
         {
             var userId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
@@ -50,7 +65,7 @@ namespace DieticianMVC.Web.Controllers
             return View(dieticianVm);
         }
 
-        [Route("dietician/edit")]
+        [Route("Dietician/Edit")]
         public IActionResult EditDietician()
         {
             var userId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
@@ -64,7 +79,7 @@ namespace DieticianMVC.Web.Controllers
         }
 
         [HttpPost]
-        [Route("dietician/edit")]
+        [Route("Dietician/Edit")]
         public IActionResult EditDietician(NewDieticianVm dieticianVm)
         {
             if (!ModelState.IsValid)
@@ -83,7 +98,7 @@ namespace DieticianMVC.Web.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult New()
+        public IActionResult NewAddress()
         {
             var userId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
             var model = new NewAddressVm
