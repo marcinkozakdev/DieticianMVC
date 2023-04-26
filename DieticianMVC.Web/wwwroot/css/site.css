@@ -10,10 +10,10 @@ html {
     font-size: 62.5%;
 }
 
-body{
-font-family: 'Inter', sans-serif;
-font-size: 1.6rem;
-background-color: #ebebeb;
+body {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.6rem;
+    background-color: #ebebeb;
 }
 
 .login {
@@ -21,9 +21,9 @@ background-color: #ebebeb;
 }
 
 .hero-shadow {
-    position:absolute;
-    top:0;
-    left:0;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,0.5);
@@ -39,16 +39,15 @@ background-color: #ebebeb;
 }
 
 }
+
 .nav-link,
 .navbar-toggler-icon {
     font-size: 1.5rem;
 }
 
-.navbar-toggler{
-    font-size:3rem;
+.navbar-toggler {
+    font-size: 3rem;
 }
-
-
 
 .btn {
     position: relative;
@@ -60,10 +59,19 @@ background-color: #ebebeb;
 }
 
     .btn:hover {
-        background-color: white !important;
+        background: rgba(157,177,65, 0.8) !important;
     }
 
-.home{
+
+.btn-danger {
+    background-color: darkred;
+}
+
+    .btn-danger:hover {
+        background: rgba(153,0,0, 0.8) !important;
+    }
+
+.home {
     position: relative;
     height: 60rem;
     background-image: url('../images/tlo-1.png');
@@ -108,13 +116,11 @@ background-color: #ebebeb;
     border-color: #9db13e;
 }
 
-.form-control{
+.form-control {
     font-size: 1.6rem;
 }
 
 .list {
-    margin-top:10rem;
+    margin-top: 10rem;
     padding: 1rem;
 }
-
-
