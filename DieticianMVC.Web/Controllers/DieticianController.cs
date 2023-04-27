@@ -43,13 +43,26 @@ namespace DieticianMVC.Web.Controllers
             var userId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
             if (!_dieticianService.CheckIfDieticianExist(userId))
             {
-                return RedirectToAction("ViewEmployee");
+                return RedirectToAction("ViewDietician");
             }
             var model = new NewDieticianVm()
             {
                 UserId = User.FindFirst(ClaimTypes.NameIdentifier).Value
             };
             return View(model);
+        }
+
+        [HttpPost]
+        [Route("Dietician/New")]
+        public IActionResult AddEmployee(NewDieticianVm model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            var id = _dieticianService.CreateDietician(model);
+            _logger.LogInformation("New dietician has been added - " + id);
+            return RedirectToAction("ViewDietician");
         }
 
         [Route("Dietician/Details")]
