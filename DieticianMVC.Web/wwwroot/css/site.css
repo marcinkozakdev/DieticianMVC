@@ -13,7 +13,7 @@ html {
 body {
     font-family: 'Inter', sans-serif;
     font-size: 1.6rem;
-    background-color: #ebebeb;
+    /*background-color: #ebebeb;*/
 }
 
 .window {
@@ -34,9 +34,9 @@ body {
     color: #9db13e
 }
 
-.navbar {
+/*.navbar {
     opacity: 0.95;
-}
+}*/
 
 }
 
@@ -47,6 +47,10 @@ body {
 
 .navbar-toggler {
     font-size: 3rem;
+}
+
+.window-header {
+    background-color: #343a40;
 }
 
 .btn {
@@ -65,10 +69,12 @@ body {
 
 .btn-danger {
     background-color: darkred;
+    border-color: Background;
 }
 
     .btn-danger:hover {
         background: rgba(153,0,0, 0.8) !important;
+        border-color: Background;
     }
 
 .home {
@@ -123,4 +129,8 @@ body {
 .list {
     margin-top: 10rem;
     padding: 1rem;
+}
+
+.navbar-window{
+    background-color: gray;
 }
