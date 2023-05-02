@@ -64,11 +64,18 @@ namespace DieticianMVC.Application.Services
             return rolesVm;
         }
 
-        public ListUsersForListVm GetAllUsers()
+        public ListUsersForListVm GetAllUsers(int pageSize, int pageNo, string searchString)
         {
-            var users = _userManager.Users.ProjectTo<UserForListVm>(_mapper.ConfigurationProvider).ToList();
+            var users = _userManager.Users
+                .Where(p=>p.UserName.Contains(searchString)).ProjectTo<UserForListVm>(_mapper.ConfigurationProvider).ToList();
+
+            var usersToShow = users.Skip(pageSize * (pageNo - 1)).Take(pageSize).ToList();
+
             var usersVm = new ListUsersForListVm()
             {
+                PageSize = pageSize,
+                CurrentPage = pageNo,
+                SearchString = searchString,
                 Users = users,
                 Count = users.Count
             };

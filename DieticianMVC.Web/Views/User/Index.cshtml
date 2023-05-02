@@ -5,97 +5,82 @@
 }
 
 <section class="window shadow-lg p-3 mb-5 bg-white text-dark rounded list container d-flex flex-column">
-    <div class="">
-        <h1>@ViewData["Title"]</h1>
-    </div>
+
+    <form asp-action="Index" asp-controller="User" method="post">
+        <div class="row">
+            <div class="col-md-4">
+                <h2>@ViewData["Title"]</h2>
+            </div>
+            <div class="col-md-4 offset-md-4">
+                <div class="input-group rounded">
+                    <input type="text" asp-for="SearchString" id="searchString" class="form-control" placeholder="Wyszukaj" aria-label="Search" aria-describedby="searchString" />
+                    <button id="search-button" type="button" class="btn btn-light">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
         <hr />
 
-    <table class="table mt-3 text-" id="table" width="100%">
-        <thead class="table-dark p-3 shadow-lg text-light text-opacity-75">
-            <tr>
-                <th>
-                    Id
-                </th>
-                <th>
-                    Nazwa użytkownika
-                </th>
-                <th>
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.Users)
-            {
+        <table class="table">
+            <thead class="table-dark table-stripped table-bordered">
                 <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Id)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.UserName)
-                    </td>
-                    <td>
-                        <a class="btn btn-danger btn-sm" href="javascript:DeleteUser('@item.Id','@item.UserName')">Usuń</a>
-                    </td>
+                    <th>Id</th>
+                    <th>Nazwa użytkownika</th>
+                    <th>Akcja</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Users)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UserName)
+                        </td>
+                        <td>
+                            <a class="btn-light" href=""><i class="bi bi-pen"></i></a>
+                            <a class="btn-light" onclick="return window.confirm('Czy napewno chcesz usunąć tego użytkownika?" href="/User/DeleteUser?id=@item.Id"><i class="bi bi-trash"></i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+        <div class="row">
+            <table>
+                <tr>
+                    @for (int i = 1; i < Math.Ceiling(Model.Count / (double)Model.PageSize); i++)
+                    {
+                        <td>
+                            @if (i != Model.CurrentPage)
+                            {
+                                <a href="javascript:PagerClick(@i)">@i</a>
+                            }
+                            else
+                            {
+                                <span>@i</span>
+                            }
+                        </td>
+                    }
+                </tr>
+            </table>
+            <input type="hidden" name="pageNo" id="pageNo" />
+            <input type="hidden" name="pageSize" id="pageSize" value="1" />
+        </div>
+    </form>
 
 </section>
 
-@section Scripts{
-
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
-
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
-
+@section Scripts
+    {
     <script type="text/javascript">
-        $(document).ready(function () {
-            $('#table').DataTable({
-                "scrollX": true,
-                responsive: true,
-                "pagingType": "full_numbers",
-                "language": {
-                    "lengthMenu": "Pokaż _MENU_ użytkowników na stronie",
-                    "zeroRecords": "Brak pasujących użytkowników",
-                    "info": "Strona _PAGE_ z _PAGES_",
-                    "infoEmpty": "Brak użytkowników w bazie",
-                    "infoFiltered": "(przeszukano z _MAX_ liczby rekordów)",
-                    "search": "Wyszukaj: ",
-                    "paginate": {
-                        "first": "Pierwsza",
-                        "last": "Ostatnia",
-                        "next": "Następna",
-                        "previous": "Poprzednia"
-                    },
-
-                },
-                "columns": [
-                    null,
-                    { "orderable": false }
-                ]
-            });
-        });
-
-        function DeleteUser(id, name) {
-            if (confirm('Czy na pewno chcesz usunąć użytkownika ' + name + '?')) {
-                $.ajax({
-                    url: '@Url.Action("DeleteUser", "UserRoles")',
-                    type: 'POST',
-                    data: { id: id },
-                    success: function (result) {
-                        location.reload();
-                    }
-                });
-            }
-        }
-        function SetRoles(id) {
-            var $divRoles = $('#Roles');
-            $divRoles.empty();
-            var url = '@Url.Action("AddRolesToUser","UserRoles")?id=' + id;
-            $divRoles.load(url);
-            $('#DeleteRoles').show();
+        function PagerClick(index) {
+            document.getElementById("pageNo").value = index;
+            document.forms[0].submit();
         }
     </script>
-    }
-
+}

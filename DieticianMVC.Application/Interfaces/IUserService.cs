@@ -10,7 +10,7 @@ namespace DieticianMVC.Application.Interfaces
 {
     public interface IUserService
     {
-        ListUsersForListVm GetAllUsers();
+        ListUsersForListVm GetAllUsers(int pageSize, int pageNo, string searchString);
         IQueryable<RoleVm> GetAllRoles();
         IQueryable<string> GetRolesByUser(string id);
         UserDetailVm GetUserDetails(string id);
