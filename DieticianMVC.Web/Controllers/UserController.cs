@@ -15,7 +15,23 @@ namespace DieticianMVC.Web.Controllers
         [Route("Users/All")]
         public IActionResult Index()
         {
-            var model = _userService.GetAllUsers();
+            var model = _userService.GetAllUsers(2,1,"");
+            return View(model);
+        }
+
+        [HttpPost]
+        [Route("Users/All")]
+        public IActionResult Index(int pageSize, int pageNo, string searchString)
+        {
+            if(pageNo == null)
+            {
+                pageNo = 1;
+            }
+            if(searchString is null)
+            {
+                searchString = String.Empty;
+            }
+            var model = _userService.GetAllUsers(pageSize, pageNo, searchString);
             return View(model);
         }
 
