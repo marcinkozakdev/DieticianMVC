@@ -76,7 +76,7 @@ namespace DieticianMVC.Application.Services
                 PageSize = pageSize,
                 CurrentPage = pageNo,
                 SearchString = searchString,
-                Users = users,
+                Users = usersToShow,
                 Count = users.Count
             };
             return usersVm;
