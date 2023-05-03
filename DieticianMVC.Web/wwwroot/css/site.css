@@ -66,6 +66,15 @@ body {
         background: rgba(157,177,65, 0.8) !important;
     }
 
+.btn-background {
+    background-color:Background;
+    border-color: Background;
+}
+
+.btn-background:hover {
+    background: rgba(0,0,0, 0.1) !important;
+    border-color: Background;
+}
 
 .btn-danger {
     background-color: darkred;

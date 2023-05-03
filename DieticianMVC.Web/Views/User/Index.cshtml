@@ -42,14 +42,15 @@
                             @Html.DisplayFor(modelItem => item.UserName)
                         </td>
                         <td>
-                            <a class="btn-light" href=""><i class="bi bi-pen"></i></a>
-                            <a class="btn-light" onclick="return window.confirm('Czy napewno chcesz usunąć tego użytkownika?" href="/User/DeleteUser?id=@item.Id"><i class="bi bi-trash"></i></a>
+                            <a class="btn btn-background" href=""><i class="bi bi-pen"></i></a>
+                            <a class="btn btn-background" onclick="return window.confirm('Czy napewno chcesz usunąć tego użytkownika?" href="/User/DeleteUser?id=@item.Id"><i class="bi bi-trash"></i></a>
                         </td>
                     </tr>
                 }
             </tbody>
 
         </table>
+
         <div class="row">
             <table>
                 <tr>
