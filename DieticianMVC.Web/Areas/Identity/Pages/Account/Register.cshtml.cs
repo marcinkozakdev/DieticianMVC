@@ -108,6 +108,9 @@ namespace DieticianMVC.Web.Areas.Identity.Pages.Account
             [Required]
             public string? Role { get; set; }
 
+            [Required]
+            public bool Privacy { get; set; }
+
             [ValidateNever]
             public IEnumerable<SelectListItem> RoleList { get; set; }
         }
