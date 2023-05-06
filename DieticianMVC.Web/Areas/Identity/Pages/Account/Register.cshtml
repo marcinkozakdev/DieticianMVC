@@ -1,8 +1,13 @@
 ﻿@page
 @model RegisterModel
 @{
+    Layout = "_LayoutLoginRegister";
+}
+
+@{
     ViewData["Title"] = "Rejestracja";
 }
+
 <section>
     <div class="container p-5">
         <div class="row justify-content-center">
@@ -66,7 +71,7 @@
 
                     <div class="checkbox mt-3">
                         <label class="form-check-label h5">
-                            <input class="form-check-input mt-1" type="checkbox" /> Akceptuję
+                            <input class="form-check-input mt-1" type="checkbox" required checked /> Akceptuję
 
                             <a class="green-color link-dark">
                                 regulamin serwisu

@@ -2,6 +2,34 @@
     ViewData["Title"] = "Home Page";
 }
 
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3 shadow-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand"
+               asp-area=""
+               asp-controller="Home"
+               asp-action="Index">
+                <img src="~/images/logo200x40.png"
+                     height="40"
+                     width="200" />
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse flex-row-reverse" id="navbarSupportedContent">
+                <partial name="_LoginPartial" />
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link px-lg-3 active" href="#home">Home</a>
+                    <a class="nav-link px-lg-3" href="#features">Funkcje</a>
+                    <a class="nav-link px-lg-3" href="#contact">Kontakt</a>
+                </div>
+                </div>
+        </div>
+      
+    </nav>
+</header>
+
 <section id="home" class="home">
     <div class="container h-100 d-flex flex-column justify-content-center align-items-center text-light text-center">
         <p class="display-1">Popraw efektywność i wygodę swojej pracy! </p>
