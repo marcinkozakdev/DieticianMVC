@@ -12,7 +12,7 @@ namespace DieticianMVC.Web.Controllers
             _userService = userService;
         }
 
-        [Route("Users/All")]
+        [Route("Users")]
         public IActionResult Index()
         {
             var model = _userService.GetAllUsers(10,1,"");
@@ -20,7 +20,7 @@ namespace DieticianMVC.Web.Controllers
         }
 
         [HttpPost]
-        [Route("Users/All")]
+        [Route("Users")]
         public IActionResult Index(int pageSize, int pageNo, string searchString)
         {
             if(pageNo == null)
