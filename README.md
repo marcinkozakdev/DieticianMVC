@@ -36,9 +36,15 @@ The application is under development.
 ![Landing page](/DieticianMVC.Web/wwwroot/ScreenShots/welcome_page_1.png)
 ![Landing page](/DieticianMVC.Web/wwwroot/ScreenShots/welcome_page_2.png)
 ### Login page
-![Login page](/DieticianMVC.Web/wwwroot/ScreenShots/login_page_2.png)
+![Login page](/DieticianMVC.Web/wwwroot/ScreenShots/login_page.png)
 ### Register page
-![Login page](/DieticianMVC.Web/wwwroot/ScreenShots/register_page_2.png)
+![Login page](/DieticianMVC.Web/wwwroot/ScreenShots/register_page.png)
+### User List
+![Login page](/DieticianMVC.Web/wwwroot/ScreenShots/user_list_page.png)
+### Patient List
+![Login page](/DieticianMVC.Web/wwwroot/ScreenShots/patient_list_page.png)
+### Add Patient
+![Login page](/DieticianMVC.Web/wwwroot/ScreenShots/patient_add_page.png)
 
 
 
