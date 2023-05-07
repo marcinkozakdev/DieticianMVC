@@ -1,5 +1,10 @@
 ﻿@model DieticianMVC.Application.ViewModels.User.UserDetailVm
 
+@{
+    Layout = "_Layout";
+}
+
+
 <form asp-action="AddRolesToUser">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <input type="hidden" asp-for="Id" class="form-control" />

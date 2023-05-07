@@ -1,17 +1,17 @@
 ﻿@model DieticianMVC.Application.ViewModels.User.ListUsersForListVm
 @{
-    Layout = "_Layout - Copy";
+    Layout = "_Layout";
 }
 
 @{
     ViewData["Title"] = "Lista użytkowników";
 }
 
-<section class="window shadow-lg p-3 mb-5 bg-white text-dark rounded list container">
+<section class="window shadow-lg p-4 bg-white text-dark rounded mt-3 me-4">
     <form asp-action="Index" asp-controller="User" method="post">
         <div class="row">
-            <div class="col-md-4">
-                <h1>@ViewData["Title"]</h1>
+            <div class="col-md-4 mt-2">
+                <h1>@ViewData["Title"]</h2>
             </div>
             <div class="col-md-4 offset-md-4">
                 <div class="input-group rounded">
@@ -58,7 +58,17 @@
             <div class="justify-content-end">
                 <ul class="pagination justify-content-end">
                     <li class="page-item">
-                        <a class="page-link text-dark">Strona @Model.CurrentPage z @Math.Ceiling(Model.Count / (double)Model.PageSize)</a>
+                        <a class="page-link text-dark">
+                            Strona @Model.CurrentPage z
+                            @if (Model.Count == 0)
+                            {
+                                <span>1</span>
+                            }
+                            @if (Model.Count > 0)
+                            {
+                                <span>@Math.Ceiling(Model.Count / (double)Model.PageSize)</span>
+                            }
+                        </a>
                     </li>
                     @if(Model.CurrentPage > 1)
                     {

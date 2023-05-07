@@ -1,77 +1,126 @@
 ﻿@model DieticianMVC.Application.ViewModels.Patient.ListPatientsForListVm
-
 @{
-    ViewData["Title"] = "Lista pacjentów";
+    Layout = "_Layout";
 }
 
-<section class="patients">
-    <h3>Pacjenci</h3>
-    <hr />
+@{
+    ViewData["Title"] = "Pacjenci";
+}
+
+<section class="window shadow-lg p-4 bg-white text-dark rounded mt-3 me-4">
     <form asp-action="Index" asp-controller="Patient" method="post">
-        <div class="row row">
-            <input type="search" asp-for="SearchString" name="searchString" id="searchString" placeholder="Wyszukaj"/>
-            <a asp-action="Add"><input type="button" value="+ Dodaj" class="btn" /></a>
-        </div>
         <div class="row">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>
-                            Imię i Nazwisko
-                        </th>
-                        <th>
-                            Email
-                        </th>
-                        <th>
-                            Status
-                        </th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model.Patients)
-                    {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.FullName)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.EmailAddress)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.PatientStatus)
-                            </td>
-                            <td>
-                                @Html.ActionLink("Edit", "Edit", new { id=item.Id })
-                                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
+            <div class="col-md-4 mt-2">
+                <h1>@ViewData["Title"]</h1>
+            </div>
+            <div class="col-md-4">
+                <a asp-action="Add"><input type="button" value="+ Dodaj" class="btn float-end" /></a>
+            </div>
+            <div class="col-md-4">
+                <div class="input-group rounded">
+                    <input type="text" asp-for="SearchString" id="searchString" class="form-control" placeholder="Wyszukaj" aria-label="Search" aria-describedby="searchString" />
+                    <button id="search-button" type="button" class="btn btn-light">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
         </div>
-        <div class="row">
-            <table>
+
+        <hr />
+
+        <table class="table">
+            <thead class="table-dark table-stripped table-bordered">
                 <tr>
-                    @for (int i = 1; i < Math.Ceiling(Model.Count / (double)Model.PageSize); i++)
-                    {
-                        <td>
-                            @if (i != Model.CurrentPage)
-                            {
-                                <a href="javascript:PagerClick(@i)">@i</a>
-                            }
-                            else
-                            {
-                                <span>@i</span>
-                            }
-                        </td>
-                    }
+                    <th>Imię i Nazwisko</th>
+                    <th>Email</th>
+                    <th>Status</th>
+                    <th>Akcja</th>
+
                 </tr>
-            </table>
-            <input type="hidden" name="pageNumber" id="pageNumber" />
-            <input type="hidden" name="pageSize" id="pageSize" value="3" />
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Patients)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FullName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EmailAddress)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PatientStatus)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id=item.Id })
+                            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+                        </td>
+                        <td>
+                            <a class="btn btn-background" href=""><i class="bi bi-pen"></i></a>
+                            <a class="btn btn-background" onclick="return window.confirm('Czy napewno chcesz usunąć tego użytkownika?" href="/User/DeleteUser?id=@item.Id"><i class="bi bi-trash"></i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <hr />
+
+        <div class="row">
+            <div class="justify-content-end">
+                <ul class="pagination justify-content-end">
+                    <li class="page-item">
+                        <a class="page-link text-dark">Strona @Model.CurrentPage z 
+                            @if (Model.Count == 0) {<span>1</span>}
+                            @if (Model.Count > 0) { <span>@Math.Ceiling(Model.Count / (double)Model.PageSize)</span>}
+                            </a>
+                    </li>
+                    @if (Model.CurrentPage > 1)
+                    {
+                        <li class="page-item">
+                            <a class="page-link text-dark" href="javascript:PagerClick(@Model.CurrentPage - (@Model.CurrentPage-1))"><i class="bi bi-chevron-bar-left"></i></a>
+                        </li>
+                    }
+
+                    <li class="page-item">
+                        @if (Model.CurrentPage <= 1)
+                        {
+                            <a class="page-link text-dark"><i class="bi bi-chevron-left" disabled></i></a>
+                        }
+                        else
+                        {
+                            <a class="page-link text-dark" href="javascript:PagerClick(@Model.CurrentPage-1)"><i class="bi bi-chevron-left"></i></a>
+                        }
+                    </li>
+
+                    <li class="page-item">
+                        @if (Model.CurrentPage >= (Model.Count / (double)Model.PageSize))
+                        {
+                            <a class="page-link text-dark"><i class="bi bi-chevron-right"></i></a>
+                        }
+                        else
+                        {
+                            <a class="page-link text-dark" href="javascript:PagerClick(@Model.CurrentPage+1)"><i class="bi bi-chevron-right"></i></a>
+                        }
+                    </li>
+
+                    @if (Model.CurrentPage < Math.Ceiling(Model.Count / (double)Model.PageSize))
+                    {
+                        <li class="page-item">
+                            <a class="page-link text-dark" href="javascript:PagerClick(@Math.Ceiling(Model.Count / (double)Model.PageSize))"><i class="bi bi-chevron-bar-right"></i></a>
+                        </li>
+                    }
+
+                    <input type="hidden" name="pageNo" id="pageNo" />
+                    <input type="hidden" name="pageSize" id="pageSize" value="10" />
+                </ul>
+            </div>
         </div>
     </form>
+
 </section>
 
 

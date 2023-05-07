@@ -11,7 +11,7 @@
 <section>
     <div class="container p-5">
         <div class="row justify-content-center">
-            <di class="window shadow-lg p-3 mb-5 bg-white text-dark rounded col-md-6 col-lg-5 col-xl-4">
+            <div class="shadow-lg p-3 mt-5 bg-white text-dark rounded col-md-6 col-lg-5 col-xl-4">
 
                 <div class="text-center align-items-center justify-content-center">
                     <img src="~/images/user-modul.png" />
@@ -46,7 +46,7 @@
                     </div>
 
                     <div class="form-group mb-3">
-                        <select asp-for="Input.Role" asp-items="@Model.Input.RoleList" class="form-control h4" aria-required="true" >
+                        <select asp-for="Input.Role" asp-items="@Model.Input.RoleList" class="form-control h4" aria-required="true">
                             <option disabled selected>Wybierz rolę</option>
 
                         </select>
@@ -54,19 +54,19 @@
                         <span asp-validation-for="Input.Role" class="text-danger h5"></span>
                     </div>
 
-                @*    <fieldset class="form-group row mb-3 p-2">
-                            <div class="form-check col-6">
-                                <input class="form-check-input m-2" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-                                <label class="form-check-label" for="gridRadios1">
-                                    Dietetyk
-                                </label>
-                            </div>
-                            <div class="form-check col-6">
-                                <input class="form-check-input m-2" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-                                <label class="form-check-label" for="gridRadios2">
-                                    Pacjent
-                                </label>
-                            </div>
+                    @*    <fieldset class="form-group row mb-3 p-2">
+                    <div class="form-check col-6">
+                    <input class="form-check-input m-2" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                    <label class="form-check-label" for="gridRadios1">
+                    Dietetyk
+                    </label>
+                    </div>
+                    <div class="form-check col-6">
+                    <input class="form-check-input m-2" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                    <label class="form-check-label" for="gridRadios2">
+                    Pacjent
+                    </label>
+                    </div>
                     </fieldset>*@
 
                     <div class="checkbox mt-3">
@@ -80,6 +80,7 @@
                                 politykę prywatności
                             </a>
                         </label>
+                        <span asp-validation-for="Input.Privacy" class="text-danger h5"></span>
                     </div>
 
                     <div class="mt-5 text-center align-items-center justify-content-center">
@@ -121,9 +122,9 @@
                         }
                     }
                 </div>
+            </div>
         </div>
     </div>
-
 </section>
 
 
