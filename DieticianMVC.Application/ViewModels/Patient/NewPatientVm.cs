@@ -2,6 +2,7 @@
 using DieticianMVC.Application.Mapping;
 using DieticianMVC.Domain.Model;
 using FluentValidation;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace DieticianMVC.Application.ViewModels.Patient
 {
@@ -14,7 +15,7 @@ namespace DieticianMVC.Application.ViewModels.Patient
         public string PhoneNumber { get; set; }
         public string Sex { get; set; }
         public DateTime DateOfBirth { get; set; }
-        public int DieticianId { get; set; } = 1;
+        public int DieticianId { get; set; }
 
         public void Mapping(Profile profile)
         {

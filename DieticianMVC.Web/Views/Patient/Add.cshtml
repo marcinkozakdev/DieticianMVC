@@ -13,7 +13,7 @@
         <h1>@ViewData["Title"]</h1>
         <hr />
     <div class="col-md-4 mt-2">
-        <form asp-action="AddPatient">
+        <form asp-action="Add">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group p-2">
                 <input type="hidden" asp-for="Id" />
@@ -45,6 +45,10 @@
             <div class="form-group p-2">
                 <input asp-for="DateOfBirth" class="form-control p-3" autocomplete="DateOfBirth" aria-required="true" placeholder="Data urodzenia" />
                 <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+            </div>
+            <div class="form-group p-2">
+                <input hidden asp-for="DieticianId" class="form-control p-3" autocomplete="DieticianId" aria-required="true" placeholder="Id"/>
+                <span asp-validation-for="DieticianId" class="text-danger"></span>
             </div>
             <div class="form-group p-2 mt-3">
                 <a asp-action="Index"><input type="button" value="Anuluj" class="btn" /></a>

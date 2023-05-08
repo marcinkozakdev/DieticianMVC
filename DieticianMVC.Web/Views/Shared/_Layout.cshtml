@@ -25,14 +25,14 @@
                 <div class="bg-dark p-2">
                     <a class="navbar-brand" asp-controller="User" asp-action="Dashboard">
                         <img class="fs-4 d-none d-sm-inline"
-                        src="~/images/logo200x40.png"
+                             src="~/images/logo200x40.png"
                              height="40"
                              width="200" />
                     </a>
                     <hr class="bg-light mt-4" />
                     <ul class="nav nav-pills flex-column mt-5">
-                         <li class="nav-item">
-                           <a class="nav-link text-light p-4" asp-route="/Dashboard" aria-haspopup="true" aria-expanded="false">
+                        <li class="nav-item">
+                            <a class="nav-link text-light p-4" asp-route="/Dashboard" aria-haspopup="true" aria-expanded="false">
                                 <i class="bi bi-columns-gap green-color"></i><span class="fs-4 ms-4 d-none d-sm-inline">Dashboard</span>
                             </a>
                         </li>
@@ -45,48 +45,66 @@
                             </li>
                         }
                         @if (User.IsInRole("Admin") || User.IsInRole("Dietician"))
-                            {
-                        <li class="nav-item">
-                            <a class="nav-link text-light p-4" asp-controller="Patient" asp-action="Index" aria-haspopup="true" aria-expanded="false">
-                                <i class="bi bi-people green-color "></i><span class="fs-4 ms-4 d-none d-sm-inline">Pacjenci</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light p-4" asp-controller="" asp-action="" aria-haspopup="true" aria-expanded="false">
-                                <i class="bi bi-card-text green-color"></i><span class="fs-4 ms-4 d-none d-sm-inline">Jadłospisy</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light p-4" asp-controller="" asp-action="" aria-haspopup="true" aria-expanded="false">
-                               <i class="fas fa-utensils green-color"></i><span class="fs-4 ms-4 d-none d-sm-inline">Potrawy</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light p-4" asp-controller="" asp-action="" aria-haspopup="true" aria-expanded="false">
-                                <i class="bi bi-basket3 green-color"></i><span class="fs-4 ms-4 d-none d-sm-inline">Składniki</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light p-4" asp-controller="" asp-action="" aria-haspopup="true" aria-expanded="false">
-                                <i class="bi bi-gear green-color "></i><span class="fs-4 ms-4 d-none d-sm-inline">Ustawienia</span>
-                            </a>
-                        </li>
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-light p-4" asp-controller="Patient" asp-action="Index" aria-haspopup="true" aria-expanded="false">
+                                    <i class="bi bi-people green-color "></i><span class="fs-4 ms-4 d-none d-sm-inline">Pacjenci</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light p-4" asp-controller="" asp-action="" aria-haspopup="true" aria-expanded="false">
+                                    <i class="bi bi-card-text green-color"></i><span class="fs-4 ms-4 d-none d-sm-inline">Jadłospisy</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light p-4" asp-controller="" asp-action="" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-utensils green-color"></i><span class="fs-4 ms-4 d-none d-sm-inline">Potrawy</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light p-4" asp-controller="" asp-action="" aria-haspopup="true" aria-expanded="false">
+                                    <i class="bi bi-basket3 green-color"></i><span class="fs-4 ms-4 d-none d-sm-inline">Składniki</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light p-4" asp-controller="" asp-action="" aria-haspopup="true" aria-expanded="false">
+                                    <i class="bi bi-gear green-color "></i><span class="fs-4 ms-4 d-none d-sm-inline">Ustawienia</span>
+                                </a>
+                            </li>
                         }
                     </ul>
                 </div>
 
-                <div class="row dropdown p-4">
+                <div class="row p-3">
                     <hr class="bg-light mb-3" />
 
-                    <div class="col-md-3 align-items-center">
-                        <button class="btn bg-dark border-none dropdown text-light p-4" type="button" id="triggerId" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class="col-md-3 align-items-center dropdown">
+                        <button class="btn bg-dark border-none dropdown-toggle text-light p-4 mt-2" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdownUserMenu">
                             <i class="fa fa-user"></i>
                         </button>
+
+                        <div class="dropdown-menu p-2" aria-labelledby="dropdownUserMenu">
+                            <div class="nav-item">
+                                <span>Zalogowano jako:</span>
+                                <div class="pb-3 green-color text h5">@User.Identity.Name</div>
+                                <div>
+                                    <div class="dropdown-divider"></div>
+                                    <form asp-area="Identity"
+                                          asp-page="/Account/Logout"
+                                          asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                        <button type="submit" class="btn btn-background px-lg-3">
+                                            <i class="bi bi-box-arrow-right"></i> Wyloguj
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="col-md-8 p-2 text-light">
+                    <div class="col-md-9 p-3 text-light">
                         <div class="pb-3">
-                            @if(User.IsInRole("Admin")) {
+                            @if (User.IsInRole("Admin"))
+                            {
                                 <span>Administrator</span>
                             }
                             @if (User.IsInRole("Dietician"))
