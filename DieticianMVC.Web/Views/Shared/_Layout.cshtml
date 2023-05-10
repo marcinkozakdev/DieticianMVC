@@ -84,25 +84,40 @@
                         </button>
 
                         <div class="dropdown-menu p-2" aria-labelledby="dropdownUserMenu" style="width:240px">
+                            <div>
+                                <a type="submit" class="btn btn-background p-1 w-100 " asp-area="Identity" asp-page="/Account/Manage/Index">
 
-                                <span>Zalogowano jako:</span>
-                                <div class="pb-3 green-color text h5">@User.Identity.Name</div>
-                                <div>
-                                    <div class="dropdown-divider"></div>
-                                    <form asp-area="Identity"
-                                          asp-page="/Account/Logout"
-                                          asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                                          <div class="row"></div>
-                                        <button type="submit" class="btn btn-background just w-100">
-                                        <i class="bi bi-box-arrow-right green-color"></i><span class="ms-3">Wyloguj</span>
-                                        </button>
-                                    </form>
+                                    <div class="row p-1">
+                                        <div class="col-md-2 text-center mt-3">
+                                            <i class="bi bi-person green-color"></i>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <span>Zalogowano jako</span>
+                                            <div class="green-color text h5">@User.Identity.Name</div>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <div class="dropdown-divider"></div>
+
+                                <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                    <button class=" btn btn-background p-1 w-100" type="submit">
+                                        <div class="row p-1">
+                                            <div class="col-md-2 text-center mt-1">
+                                                <i class="bi bi-box-arrow-right green-color"></i>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <span class="fs-4 d-none d-sm-inline">Wyloguj</span>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </form>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-md-9 p-3 text-light">
-                        <div class="pb-3">
+                        <div>
                             @if (User.IsInRole("Admin"))
                             {
                                 <span>Administrator</span>
