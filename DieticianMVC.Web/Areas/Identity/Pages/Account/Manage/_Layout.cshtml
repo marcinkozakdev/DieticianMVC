@@ -1,0 +1,43 @@
+﻿@{
+    if (ViewData.TryGetValue("ParentLayout", out var parentLayout) && parentLayout != null)
+    {
+        Layout = parentLayout.ToString();
+    }
+    else
+    {
+        Layout = "/Areas/Identity/Pages/_Layout.cshtml";
+    }
+}
+
+<div class="navbar navbar-expand-lg navbar-light bg-light text-dark" style="height: 70px; margin-left:280px">
+<h1>Ustawienia</h1>
+</div>
+<hr class="bg-dark" />
+<nav class="navbar navbar-expand-lg navbar-light bg-light text-dark" style="height: 70px; margin-left:280px">
+        <div class="navbar-nav">
+            <partial name="_ManageNav" />
+        </div>
+</nav>
+
+<div class="col-md-9">
+    @RenderBody()
+</div>
+
+@*<h1>Manage your account</h1>
+*@
+@*<div>
+    <h2>Change your account settings</h2>
+    <hr />
+    <div class="row">
+        <div class="col-md-3">
+            <partial name="_ManageNav" />
+        </div>
+        <div class="col-md-9">
+            @RenderBody()
+        </div>
+    </div>
+</div>*@
+
+@section Scripts {
+    @RenderSection("Scripts", required: false)
+}
