@@ -9,19 +9,40 @@
     }
 }
 
-<div class="navbar navbar-expand-lg navbar-light bg-light text-dark" style="height: 70px; margin-left:280px">
-<h1>Ustawienia</h1>
-</div>
-<hr class="bg-dark" />
-<nav class="navbar navbar-expand-lg navbar-light bg-light text-dark" style="height: 70px; margin-left:280px">
-        <div class="navbar-nav">
-            <partial name="_ManageNav" />
+<div class="container" style="height: 70px; margin-left:280px">
+    <div class="row">
+        <div class="col align-self-start p-3 mt-3">
+            <h1>Ustawienia</h1>
         </div>
-</nav>
+        <hr class="bg-dark m-0 ms-3" />
+        <div class="col align-self-start p-3 mt-3">
+            <h2>Dane personalne</h2>
 
-<div class="col-md-9">
-    @RenderBody()
+        </div>
+        <hr class="bg-dark m-0 ms-3" />
+        <div class="col align-self-start p-3 mt-3">
+            <h2>Haslo</h2>
+        </div>
+      
+
+    </div>
+
 </div>
+
+
+@*<div class="navbar navbar-expand-lg navbar-light bg-light text-dark" style="height: 70px; margin-left:280px">
+    <h1>Ustawienia</h1>
+    <hr class="bg-dark p-0 m-0" />
+    <div class="navbar navbar-expand-lg navbar-light bg-light text-dark" style="height: 70px; margin-left:280px">
+      
+    </div>
+      <div class="col-md-9">
+            @RenderBody()
+        </div>
+</div>*@
+
+
+
 
 @*<h1>Manage your account</h1>
 *@
